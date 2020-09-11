@@ -55,7 +55,7 @@ Work Experience
 **Amazon Web Services (Software Development Engineer Intern)**
   * Summer 2020 (Returning in Summer 2021)
   * Led a team to implement a robust testing framework for [Service Workbench on AWS](github.com/awslabs/service-workbench-on-aws)
-  * Designed an implemented a framework for documentation
+  * Designed and implemented a framework for documentation
   * Designed cross-platform installation scripts for [FHIR Works on AWS](aws.amazon.com/blogs/opensource/using-open-source-fhir-apis-with-fhir-works-on-aws/)
   * Implemented over 250 unit tests across 65 testing suites
 <p>&nbsp;</p>
