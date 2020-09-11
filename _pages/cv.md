@@ -12,13 +12,13 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Biomedical Informatics, University of Pittsburgh School of Medicine, 2025 (expected)
+Ph.D in Biomedical Informatics, University of Pittsburgh School of Medicine, 2025 (expected)
   * Advisors: Dr. Franz Franchetti, Dr. Sofia Triantafyllou
   * National Library of Medicine T-15 Training Grant
   * School of Medicine Dean's Fellowship
 <p>&nbsp;</p>
 
-* B.S. *magna cum laude* in Mathematics, University of Central Florida, 2020
+B.S. *magna cum laude* in Mathematics, University of Central Florida, 2020
   * Burnett Honors College
   * Studied abroad at Nagasaki University of Foreign Studies in Nagasaki, Japan
   * National Merit Scholar
@@ -26,14 +26,14 @@ Education
 
 Research Experience
 ======
-* **Bacterial Genomics Research**
+**Bacterial Genomics Research**
   * 2018 - 2020
   * University of Pittsburgh
   * Principal Investigator: Dr. Erik Wright
   * Analyzed frequency of occurence of structural variation in bacterial genomes
 <p>&nbsp;</p>
 
-* **UCF Evolutionary Computation Lab**
+**UCF Evolutionary Computation Lab**
   * 2017-2020
   * University of Central Florida
   * Funded by UCF Burnett Honors College
@@ -41,7 +41,7 @@ Research Experience
   * Investigated effect of encouraging exploration in decentralized multi-agent foraging systems
 <p>&nbsp;</p>
 
-* **Robotics Institute Summer Scholar**
+**Robotics Institute Summer Scholar**
   * Summer 2018
   * Carnegie Mellon University
   * Funded by the National Science Foundation
@@ -52,7 +52,7 @@ Research Experience
 
 Work Experience
 ======
-* **Amazon Web Services (Software Development Engineer Intern)**
+**Amazon Web Services (Software Development Engineer Intern)**
   * Summer 2020 (Returning in Summer 2021)
   * Led a team to implement a robust testing framework for [Service Workbench on AWS](github.com/awslabs/service-workbench-on-aws)
   * Designed an implemented a framework for documentation
@@ -60,7 +60,7 @@ Work Experience
   * Implemented over 250 unit tests across 65 testing suites
 <p>&nbsp;</p>
 
-* **CMU Software Engineering Instute, CERT Division (Software Engineering Intern)**
+**CMU Software Engineering Instute, CERT Division (Software Engineering Intern)**
   * Summer 2017
   * Developed a Python application utilizing Apache Spark to use Latent Dirichlet Allocation to identify trends in malware runtime data
   * Developed a Python application to simulate web traffic and user activity for cyberdefense training environments
@@ -68,12 +68,12 @@ Work Experience
 
 Programming Languages
 ======
-* Extensive experience teaching others and developing multiple projects in:
+Extensive experience teaching others and developing multiple projects in:
   * Python
   * R
 <p>&nbsp;</p>
 
-* Experience developing projects in:
+Experience developing projects in:
   * Bash
   * Powershell
   * JavaScript (React, Node.js)
@@ -81,7 +81,7 @@ Programming Languages
   * C# (Unity)
 <p>&nbsp;</p>
 
-* Coursework in:
+Working proficiency in:
   * Java
   * C/C++
   * Haskell
