@@ -8,6 +8,7 @@ redirect_from:
 ---
 
 {% include base_path %}
+<p>&nbsp;</p>
 
 Education
 ======
@@ -21,6 +22,7 @@ Education
   * Burnett Honors College
   * Studied abroad at Nagasaki University of Foreign Studies in Nagasaki, Japan
   * National Merit Scholar
+<p>&nbsp;</p>
 
 Research Experience
 ======
@@ -43,6 +45,7 @@ Research Experience
   * Principal Invetigators: Dr. Stephen Smith and Dr. Isaac Isukapati
   * Used Bayesian hierarchical modelling to predict bus dwell time for traffic signal control optimization
   * Used cellular and DSRC GPS readings to improve localization in traffic intersections for use in an app for mobility impaired pedestrians
+<p>&nbsp;</p>
 
 Work Experience
 ======
@@ -56,7 +59,8 @@ Work Experience
 * Summer 2017: CMU Software Engineering Instute, CERT Division (Software Engineering Intern)
   * Developed a Python application utilizing Apache Spark to use Latent Dirichlet Allocation to identify trends in malware runtime data
   * Developed a Python application to simulate web traffic and user activity for cyberdefense training environments
-  
+<p>&nbsp;</p>
+
 Programming Languages
 ======
 * Extensive experience teaching others and developing multiple projects in:
