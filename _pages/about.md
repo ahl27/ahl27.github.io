@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal webpage!
+Welcome to my personal webpage! My name is Aidan Lakshman, and I'm a doctoral fellow at the University of Pittsburgh School of Medicine. I'm currently researching new algorithm optimizations for Causal Modelling and Discovery. My research mentors are [Dr. Franz Franchetti](https://users.ece.cmu.edu/~franzf/) and [Dr. Sofia Triantafyllou](https://sites.google.com/view/softriant/).
 
 This is gonna be great
 ======
