@@ -11,49 +11,69 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* Ph.D in Biomedical Informatics, University of Pittsburgh School of Medicine, 2025 (expected)
+  * Advisors: Dr. Franz Franchetti, Dr. Sofia Triantafyllou
+  * National Library of Medicine T-15 Training Grant
+  * School of Medicine Dean's Fellowship
+<p>&nbsp;</p>
 
-Work experience
-======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* B.S. *magna cum laude* in Mathematics, University of Central Florida, 2020
+  * Burnett Honors College
+  * Studied abroad at Nagasaki University of Foreign Studies in Nagasaki, Japan
+  * National Merit Scholar
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+Research Experience
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* 2018 - 2020: Bacterial Genomics Research
+  * University of Pittsburgh
+  * Principal Investigator: Dr. Erik Wright
+  * Analyzed frequency of occurence of structural variation in bacterial genomes
+<p>&nbsp;</p>
 
-Publications
+* 2017 - 2020: UCF Evolutionary Computation Lab
+  * University of Central Florida
+  * Funded by UCF Burnett Honors College
+  * Principal Investigator: Dr. Annie Wu
+  * Investigated effect of encouraging exploration in decentralized multi-agent foraging systems
+<p>&nbsp;</p>
+
+* Summer 2018: Robotics Institute Summer Scholar
+  * Carnegie Mellon University
+  * Funded by the National Science Foundation
+  * Principal Invetigators: Dr. Stephen Smith and Dr. Isaac Isukapati
+  * Used Bayesian hierarchical modelling to predict bus dwell time for traffic signal control optimization
+  * Used cellular and DSRC GPS readings to improve localization in traffic intersections for use in an app for mobility impaired pedestrians
+
+Work Experience
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Summer 2020: Amazon Web Services (Software Development Engineer Intern)
+  * Led a team to implement a robust testing framework for [Service Workbench on AWS](github.com/awslabs/service-workbench-on-aws)
+  * Designed an implemented a framework for documentation
+  * Designed cross-platform installation scripts for [FHIR Works on AWS](aws.amazon.com/blogs/opensource/using-open-source-fhir-apis-with-fhir-works-on-aws/)
+  * Implemented over 250 unit tests across 65 testing suites
+<p>&nbsp;</p>
+
+* Summer 2017: CMU Software Engineering Instute, CERT Division (Software Engineering Intern)
+  * Developed a Python application utilizing Apache Spark to use Latent Dirichlet Allocation to identify trends in malware runtime data
+  * Developed a Python application to simulate web traffic and user activity for cyberdefense training environments
   
-Talks
+Programming Languages
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Extensive experience teaching others and developing multiple projects in:
+  * Python
+  * R
+<p>&nbsp;</p>
+
+* Experience developing projects in:
+  * Bash
+  * Powershell
+  * JavaScript (React, Node.js)
+  * SQL
+  * C# (Unity)
+<p>&nbsp;</p>
+
+* Coursework in:
+  * Java
+  * C/C++
+  * Haskell
+  * Assembly
