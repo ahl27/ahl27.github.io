@@ -26,20 +26,23 @@ Education
 
 Research Experience
 ======
-* 2018 - 2020: Bacterial Genomics Research
+* **Bacterial Genomics Research**
+  * 2018 - 2020
   * University of Pittsburgh
   * Principal Investigator: Dr. Erik Wright
   * Analyzed frequency of occurence of structural variation in bacterial genomes
 <p>&nbsp;</p>
 
-* 2017 - 2020: UCF Evolutionary Computation Lab
+* **UCF Evolutionary Computation Lab**
+  * 2017-2020
   * University of Central Florida
   * Funded by UCF Burnett Honors College
   * Principal Investigator: Dr. Annie Wu
   * Investigated effect of encouraging exploration in decentralized multi-agent foraging systems
 <p>&nbsp;</p>
 
-* Summer 2018: Robotics Institute Summer Scholar
+* **Robotics Institute Summer Scholar**
+  * Summer 2018
   * Carnegie Mellon University
   * Funded by the National Science Foundation
   * Principal Invetigators: Dr. Stephen Smith and Dr. Isaac Isukapati
@@ -49,14 +52,16 @@ Research Experience
 
 Work Experience
 ======
-* Summer 2020: Amazon Web Services (Software Development Engineer Intern)
+* **Amazon Web Services (Software Development Engineer Intern)**
+  * Summer 2020 (Returning in Summer 2021)
   * Led a team to implement a robust testing framework for [Service Workbench on AWS](github.com/awslabs/service-workbench-on-aws)
   * Designed an implemented a framework for documentation
   * Designed cross-platform installation scripts for [FHIR Works on AWS](aws.amazon.com/blogs/opensource/using-open-source-fhir-apis-with-fhir-works-on-aws/)
   * Implemented over 250 unit tests across 65 testing suites
 <p>&nbsp;</p>
 
-* Summer 2017: CMU Software Engineering Instute, CERT Division (Software Engineering Intern)
+* **CMU Software Engineering Instute, CERT Division (Software Engineering Intern)**
+  * Summer 2017
   * Developed a Python application utilizing Apache Spark to use Latent Dirichlet Allocation to identify trends in malware runtime data
   * Developed a Python application to simulate web traffic and user activity for cyberdefense training environments
 <p>&nbsp;</p>
