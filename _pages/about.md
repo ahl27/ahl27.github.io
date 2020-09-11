@@ -12,5 +12,5 @@ Welcome to my personal webpage! My name is Aidan Lakshman, and I'm a doctoral fe
 
 This is gonna be great!
 ======
-This site is currently in progress, but check back soon for more content! For now, you can check out my resume in the [CV tab](https://www.ahl27.com/cv/)
+This site is currently in progress, but check back soon for more content! For now, you can check out my resume in the [CV tab](https://www.ahl27.com/cv/).
 
