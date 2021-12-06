@@ -1,10 +1,9 @@
 ---
-permalink: /projects
+permalink: /projects/
 title: "Personal Projects"
 excerpt: "Personal Projects"
 author_profile: true
 redirect_from: 
-  - /projects/
   - /projects.html
 ---
 
