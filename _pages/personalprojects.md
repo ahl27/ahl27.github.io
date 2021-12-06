@@ -26,4 +26,4 @@ I built this computer following [Ben Eater's](https://eater.net/) guides on YouT
 
 ### Web Server
 
-I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. I'm interested in adding on a small supercomputer cluster with something like Kubernetes on Raspberry Pis for prototyping--as soon as computer parts become more available I'll update this.
+I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. I'm interested in adding on a small supercomputer cluster with something like Kubernetes on Raspberry Pis for prototyping. Just waiting on computer parts to become more available before I keep working on this.
