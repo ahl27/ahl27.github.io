@@ -24,6 +24,10 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 
 I built this computer following [Ben Eater's](https://eater.net/) guides on YouTube. It's a breadboard computer using a 65c02 microprocessor, with 32KB of RAM and 16Kb of ROM. Ben Eater initially connected a keyboard via PS/2, but I wanted my computer to be able to communicate with USB protocols. I used a Raspberry Pico to build a USB-to-PS/2 decoder that translates USB Keyboard input into serial PS/2 codes.
 
+### Keyboard
+
+I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is this Helidox Corne, a split layout ortholinear keyboard with 42 keys. I'm currently using ZDA keycaps with Gateron Black switches (although pictured are a set of colorful DSA keycaps that look much prettier).
+
 ### Web Server
 
 I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. I'm interested in adding on a small supercomputer cluster with something like Kubernetes on Raspberry Pis for prototyping. Just waiting on computer parts to become more available before I keep working on this.
