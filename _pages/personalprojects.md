@@ -35,7 +35,7 @@ I built this computer following [Ben Eater's](https://eater.net/) guides on YouT
 
 ### Web Server
 
-![](../images/AD62B96C-BB1A-4D7B-9364-3BF78BFEA87E.jpeg)
+![](../images/EDF54D17-43E0-4847-BD59-0C86817DD8AB.jpeg)
 
 I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. 
 
