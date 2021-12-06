@@ -4,9 +4,9 @@ title: "Personal Projects"
 excerpt: "Projects"
 author_profile: true
 ---
-
-# Software
-
+------
+## Software
+------
 ### Academic Paper Finder 
 I wrote [this script](https://github.com/ahl27/findPapers) to discover more papers similar to what I'm currently reading. It takes as input a collection of PubMed ID's and search terms, and then traverses the network of citations to find more papers containing the search query. It then uses TF-IDF to convert each paper's abstract into a vector, and then clusters the result with K-means clustering. I wanted this to run on my iPad, so I used Pythonista, which unfortunately does not have access to most widely used libraries for NLP (such as pandas or scikit-learn). As a result, everything is implemented from scratch, including TF-IDF and K-means. 
 
@@ -15,8 +15,9 @@ In the future I'm going to investigate hierarchical clustering methods (ex. UPGM
 ### Whitespace Interpreter
 I'm a big fan of esoteric languages, and one that really caught my eye was [Whitespace](https://en.wikipedia.org/wiki/Whitespace_(programming_language), a Turing-complete programming language using only whitespace characters (space, tab, and return). I wrote up [this interpreter](https://github.com/ahl27/whitespacehttps://github.com/ahl27/whitespace) in Python for running Whitespace code, mainly as an exercise for learning how interpreters work. One of the big challenges was that popular text editor programs automatically reformat whitespace characters (ex. tabs to spaces), which immediately ruins Whitespace programs.
 
-# Hardware
-
+------
+## Hardware
+------
 ### Keyboard
 
 ![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
