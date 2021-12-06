@@ -13,7 +13,7 @@ redirect_from:
 Education
 ======
 Ph.D in Biomedical Informatics, University of Pittsburgh School of Medicine, 2025 (expected)
-  * Advisors: Dr. Franz Franchetti, Dr. Sofia Triantafyllou
+  * Advisor: Dr. Erik Wright
   * National Library of Medicine T-15 Training Grant
   * School of Medicine Dean's Fellowship
 <p>&nbsp;</p>
