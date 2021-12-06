@@ -20,14 +20,23 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 
 # Hardware
 
-### 6502 Breadboard Computer
-
-I built this computer following [Ben Eater's](https://eater.net/) guides on YouTube. It's a breadboard computer using a 65c02 microprocessor, with 32KB of RAM and 16Kb of ROM. Ben Eater initially connected a keyboard via PS/2, but I wanted my computer to be able to communicate with USB protocols. I used a Raspberry Pico to build a USB-to-PS/2 decoder that translates USB Keyboard input into serial PS/2 codes.
-
 ### Keyboard
+
+![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
 
 I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is this Helidox Corne, a split layout ortholinear keyboard with 42 keys. I'm currently using ZDA keycaps with Gateron Black switches (although pictured are a set of colorful DSA keycaps that look much prettier).
 
+### 6502 Breadboard Computer
+
+![](../images/60B6FD7D-EF9F-4719-ABA5-AD8DA6B2D087.jpeg)
+
+I built this computer following [Ben Eater's](https://eater.net/) guides on YouTube. It's a breadboard computer using a 65c02 microprocessor, with 32KB of RAM and 16Kb of ROM. Ben Eater initially connected a keyboard via PS/2, but I wanted my computer to be able to communicate with USB protocols. I used a Raspberry Pico to build a USB-to-PS/2 decoder that translates USB Keyboard input into serial PS/2 codes.
+
+
 ### Web Server
 
-I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. I'm interested in adding on a small supercomputer cluster with something like Kubernetes on Raspberry Pis for prototyping. Just waiting on computer parts to become more available before I keep working on this.
+![](../images/AD62B96C-BB1A-4D7B-9364-3BF78BFEA87E.jpeg)
+
+I built a web server to centralize my files, gain some experience with LAMP stacks, and have a robust compute environment that I could access remotely from something like an iPad. My web server hosts NextCloud to store my files on, and runs RStudio Server edition on a virtual machine. 
+
+I'm interested in adding on a small supercomputer cluster with something like Kubernetes on Raspberry Pis for prototyping. Just waiting on computer parts to become more available before I keep working on this.
