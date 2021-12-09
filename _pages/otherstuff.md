@@ -10,7 +10,7 @@ These are just random other fun things I like to do and wanted to showcase!
 ------
 ## Cocktails
 ------
-I also really enjoy making fun cocktails. These are some of my favorite creations thus far.
+I really enjoy making fun cocktails. These are some of my favorite creations thus far.
 
 ![](../80C608F3-D183-47A0-B97F-84D5D475F1D0.jpeg)
 This is a gin and tonic from The Aviary's cocktail book. It uses gin, tonic, and green chartreuse for the drink itself, and the bubbles are essentially cucumber
