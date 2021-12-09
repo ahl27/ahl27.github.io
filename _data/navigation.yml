@@ -18,6 +18,8 @@ main:
     url: /cv/
   - title: "Personal Projects"
     url: /projects/
+  - title: "Fun Stuff"
+    url: /otherstuff/
   
     
 #  - title: "Guide"
