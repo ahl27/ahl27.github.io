@@ -12,13 +12,13 @@ main:
 #  - title: "Blog Posts"
 #    url: /year-archive/
   - title: "Talks"
-    url: /talks/  
+    url: /talks/
+  - title: "CV"
+    url: /cv/
   - title: "Personal Projects"
     url: /projects/
   - title: "Fun Stuff"
     url: /otherstuff/
-  - title: "CV"
-    url: /cv/
   
     
 #  - title: "Guide"
