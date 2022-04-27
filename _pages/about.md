@@ -19,6 +19,5 @@ While at AWS, I worked on open source projects designed for helping researchers 
 I'm always interested in new collaborations and projects, so feel free to reach out if you're interested in discussing anything related to my current or prior research. My contact info is on the sidebar, and my CV is located [here](https://www.ahl27.com/cv/).
 
 
-
-I'm still working on this website, so please excuse any unfinished or weird looking sections....
+<a class="twitter-timeline" href="https://twitter.com/ahlakshman?ref_src=twsrc%5Etfw">Tweets by ahlakshman</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
