@@ -81,11 +81,11 @@ analytics:
 # Site Author
 author:
   name             : "Aidan Lakshman"
-  avatar           : "goat_photo.jpg"
-  bio              : "Doctoral Fellow, University of Pittsburgh School of Medicine"
+  avatar           : "JenWorley3.jpeg"
+  bio              : "Doctoral Candidate, University of Pittsburgh School of Medicine"
   location         : "Pittsburgh, PA"
   employer         :
-  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=aidan+lakshman"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
   email            : "ahl27@pitt.edu"
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
