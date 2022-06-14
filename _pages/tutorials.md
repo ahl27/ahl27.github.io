@@ -5,6 +5,7 @@ permalink: /tutorials/
 author_profile: false
 ---
 
+Here you'll find a compilation of tutorials I've put together, either for internal presentations with my lab or for conference presentations.
 
 ## [Introduction to Phylogenetics](https://www.ahl27.com/tutorials/IntroPhylogenetics)
 
