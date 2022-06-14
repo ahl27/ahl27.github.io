@@ -2,7 +2,7 @@
 layout: archive
 title: "Tutorials"
 permalink: /tutorials/
-author_profile: false
+author_profile: true
 ---
 
 Here you'll find a compilation of tutorials I've put together, either for internal presentations with my lab or for conference presentations.
