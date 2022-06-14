@@ -13,6 +13,8 @@ main:
 #    url: /year-archive/
   - title: "Talks"
     url: /talks/
+  - title: "Tutorials"
+    url: /tutorials/
   - title: "CV"
     url: /cv/
   - title: "Personal Projects"
