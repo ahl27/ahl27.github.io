@@ -31,7 +31,7 @@ I have yet to find a cafe with a better espresso.
 ![](../images/742AEA55-45C6-4C34-A6D2-326AA3AB77DB.jpeg)
 
 #### Setup
-![](../E11303EF-7121-484D-8F22-33BC134A996B.jpeg)
+![](../2D143280-6471-4805-B6B5-E5E512565BDE.jpeg)
 I'm using a [Niche Zero](https://www.nichecoffee.co.uk/) grinder with a [Fellow Stagg EKG](https://fellowproducts.com/) for my coffee. 
-For espresso drinks, I use a Cafelat Robot with the [Subminimal Nanofoamer](https://subminimal.com/products/nanofoamer).
+For espresso drinks, I use a [Cafelat Robot](https://www.youtube.com/watch?v=11ZSXVZbQbA) with the [Subminimal Nanofoamer](https://subminimal.com/products/nanofoamer).
 
