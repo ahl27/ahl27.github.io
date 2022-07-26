@@ -1,6 +1,6 @@
 ---
 permalink: /projects/
-title: "Personal Projects"
+title: "Projects"
 excerpt: "Projects"
 author_profile: true
 ---
