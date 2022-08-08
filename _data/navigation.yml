@@ -11,14 +11,14 @@ main:
         
 #  - title: "Blog Posts"
 #    url: /year-archive/
-  - title: "Talks"
-    url: /talks/
   - title: "Tutorials"
     url: /tutorials/
+  - title: "Talks"
+    url: /talks/
+  - title: "Projects"
+    url: /projects/
   - title: "CV"
     url: /cv/
-  - title: "Personal Projects"
-    url: /projects/
   - title: "Fun Stuff"
     url: /otherstuff/
   
