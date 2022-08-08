@@ -25,11 +25,27 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ## Hardware
 ------
-### Keyboard
+### Keyboards
+
+I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is this Helidox Corne, a split layout ortholinear keyboard with 42 keys. I'm currently using ZDA keycaps with Gateron Black switches (although pictured are a set of colorful DSA keycaps that look much prettier). 
+
+#### Helidox Corne
 
 ![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
 
-I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is this Helidox Corne, a split layout ortholinear keyboard with 42 keys. I'm currently using ZDA keycaps with Gateron Black switches (although pictured are a set of colorful DSA keycaps that look much prettier).
+Gateron Silent Black switches, pictured with DSA keycaps
+
+#### OLKB Preonic
+
+![](../images/preonic.png)
+
+Cherry Silent Red switches, XDA keycaps
+
+#### BDE rev2
+
+![](../bde2.png)
+
+Gateron Silent Red switches, XDA keycaps
 
 ### 6502 Breadboard Computer
 
