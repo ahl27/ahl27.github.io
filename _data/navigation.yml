@@ -21,6 +21,8 @@ main:
     url: /cv/
   - title: "Fun Stuff"
     url: /otherstuff/
+  - title: "Music"
+    url: /music/
   
     
 #  - title: "Guide"
