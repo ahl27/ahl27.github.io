@@ -27,7 +27,11 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ### Keyboards
 
-I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is this Helidox Corne, a split layout ortholinear keyboard with 42 keys. All of my keyboards use linear switches and XDA caps (though the Corne is pictured with DSAs that look nicer). 
+I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is the Qull, a sub-40% keyboard with lots of key combos. Unless mentioned otherwise, all of my keyboards use linear switches (Cherry reds or blacks) and XDA caps (though the Corne is pictured with DSAs that look nicer). 
+
+**Qull**
+This board uses MT3 caps, with artisan caps from [Asymplex](https://www.asymplex.xyz/)!
+![](../images/qazboard.jpg)
 
 **Helidox Corne**
 ![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
