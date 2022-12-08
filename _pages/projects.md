@@ -32,7 +32,7 @@ I love building mechanical keyboards (and honestly I have too many at this point
 **QAZ/Qull**
 
 This board uses MT3 caps, with artisan caps from [Asymplex](https://www.asymplex.xyz/)!
-![](../images/qazboard.jpg)
+![](../images/qazboard.png)
 
 **Helidox Corne**
 ![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
