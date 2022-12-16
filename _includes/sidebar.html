@@ -17,6 +17,7 @@
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
     {% endfor %}
+    <li><a href="https://genomic.social/@ahl27"><i class="fab fa-mastodon" aria-hidden="true"></i> Mastodon</a></li>
     {% if page.sidebar.nav %}
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
