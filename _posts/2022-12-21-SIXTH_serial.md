@@ -37,14 +37,6 @@ reset_acia:
   pla
   rts
 
-acia_read:
-  lda #$08
-acia_rx_full:
-  bit ACIA_STATUS       ; check to see if buffer is full (bit 3 is 1 if not empty)
-  beq acia_rx_full
-  lda ACIA_RX
-  rts
-
 {% endhighlight %}
 
 This initial implementation is based off of [Michael Billington's original post](https://mike42.me/blog/2021-07-adding-a-serial-port-to-my-6502-computer). There's quite a few random hardcoded values in here, so let's break them down based on the information in the datasheet.
@@ -116,7 +108,6 @@ message:
   .aasc "Hello, world!"
   .dsb 1,0
 
-#include "acia.asm"
 {% endhighlight %}
 
 Most of this code is pretty simple--we just initialize the ACIA chip, jump to a method to print out "Hello, world!", then return and start echoing back characters. The `message` initializer stores an `ascii` string corresponding to the text string, then `.dsb 1,0` fills the byte 0 immediately after the string. This makes the string null-terminated, so we can iterate over it by using `lda message,y` until the value loaded in `a` is zero. This can be checked with `beq`, and once we reach the end of the string we jump out of the loop to `mainloop`. At this point, we just alternate between reading and sending characters forever.
@@ -128,7 +119,7 @@ This caused some issues, since `xa` lacks a `.org` command and has *very* sparse
 {% highlight nasm %}
 * = $C000
 
-; ... code is here
+; ... code goes here
 
 .dsb $fffa-*, $ea
 .word nmi
@@ -165,8 +156,6 @@ message:
   .aasc "Hello, world!"
   .dsb 1,0
 
-#include "acia.asm"
-
 .dsb $fffa-*,$ea
 .word nmi
 .word ROMSTART
@@ -185,7 +174,7 @@ After this, we just need to run the program!
 
 Adding Text Buffers
 --------
-This setup is not bad, but it's far from ideal. Since the maximum transmission rate of the ACIA is 19,200 baud, with this current implementation we're limited to sending one character every ~0.53ms. With my current setup, the computer will have to wait between each of these send/receives, meaning that it can't do any work in the back end. It would be nice if we could just precalculate what we want to send over serial, and then process it when the ACIA has time. Likewise, if we send input, we don't want the computer to have to process it immediately character by character. 
+This setup is not bad, but it's far from ideal. Since the maximum transmission rate of the ACIA is 19,200 baud, with this current implementation we're limited to sending one character every ~0.53ms. With my current setup, the computer will have to wait between each of these send/receives, meaning that it can't do any work in the meantime. It would be nice if we could just precalculate what we want to send over serial, and then process it when the ACIA has time. Likewise, if we send input, we don't want the computer to have to process it immediately character by character. 
 
 To solve this, I'm going to set up a pair of buffers for input/output. I'll write outgoing text to the `$7Dxx` memory page, and I'll write incoming text to the `$7Exx` page. This way, I can store a string of up to 255 characters prior to having to send it out, and I can receive up to 255 characters before I have to process them with code. My constants file is getting a little large, so I'll include it here:
 
@@ -294,15 +283,13 @@ message:
   .aasc "Hello, world!"
   .dsb 1,0
 
-#include "acia.asm"
-
 .dsb $fffa-*,$ff
 .word $00
 .word ROMSTART
 .word $00
 {% endhighlight %}
 
-Shown below is an example output, along with the memory map for page `$7E` to illustrate that the buffer is getting filled up. I typed a bunch of j's to verify that the buffer correctly rolls back to `$7E00` from `$7EFF`.
+Shown below is an example output, along with the memory map for page `$7E` to illustrate that the buffer is getting filled up. I typed a bunch of `j`'s to verify that the buffer correctly rolls back to `$7E00` from `$7EFF`.
 
 ![](/images/blog_images/symonBufferedSerial.png) 
 
