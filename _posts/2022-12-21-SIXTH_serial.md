@@ -1,5 +1,5 @@
 ---
-title: '6502 FORTH, Part 3: Basic I/O'
+title: '6502 FORTH, Part 4: Basic I/O'
 date: 2022-12-21
 permalink: /posts/2022/12/SIXTH-basicio/
 tags:
