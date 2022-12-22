@@ -8,9 +8,9 @@ tags:
   - Forth
 ---
 
-I've been posting about [creating a Forth interpreter for a 65c02](https://www.ahl27.com/posts/2022/12/SIXTHp1/), and at this point I'm pretty close to something that could be tested. However, I still need one more piece of infrastructure before I can begin writing and testing my Forth interpreter: some way to get and display user input.
+I've been posting about [creating a Forth interpreter for a 65c02](https://www.ahl27.com/posts/2022/12/SIXTHp1/), and at this point I'm pretty close to something that could be tested. However, I still need one more piece of infrastructure before I can begin writing and testing my Forth interpreter: some way to communicate with a user.
 
-My 6502 build includes a 65c22 VIA and 65c11 ACIA for general I/O and serial connections, respectively. The first step was to write some way to receive data over a serial connection. I found the datasheet at [this link](https://www.princeton.edu/~mae412/HANDOUTS/Datasheets/6551_acia.pdf), and started to figure out how to get my computer to interact with the world around it.
+My 6502 build includes a 65C22 VIA and 65C11 ACIA for general I/O and serial connections, respectively. The first step was to write some way to receive data over a serial connection. I found the datasheet at [this link](https://www.princeton.edu/~mae412/HANDOUTS/Datasheets/6551_acia.pdf), and started to figure out how to get my computer to interact with the world around it.
 
 Serial Connections
 ---------------
