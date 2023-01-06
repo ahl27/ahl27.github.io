@@ -256,7 +256,7 @@ Each test for a given multiplication looks like this:
 
 ;; Quick tests to make sure the stack is working properly
 
-;; main noop loop
+;; main function
 
 main
   jsr initstack
