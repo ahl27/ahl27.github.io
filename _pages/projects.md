@@ -8,6 +8,12 @@ author_profile: true
 
 ## Software
 
+### 65C02 Emulator
+
+![](/images/blog_images/emuExample.gif)
+
+I wrote an emulator in C for 65C02 systems. The full code is available [on GitHub](https://github.com/ahl27/65C02Emulator). This program implements a GUI to monitor memory while executing programs, as well as complete emulation of all 6502 and 65C02 Rockwell/WDC opcodes. More details are available [on my blog](https://www.ahl27.com/tags/#emulator).
+
 ### SynCIPHER Web App
 
 ![](../images/SynCIPHERimg.png)
