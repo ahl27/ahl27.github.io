@@ -6,7 +6,7 @@ author_profile: true
 
 Here you'll find a compilation of tutorials I've put together, either for internal presentations with my lab or for conference presentations.
 
-## [Introduction to Phylogenetics](https://www.ahl27.com/IntroPhylogenetics)
+## [Introduction to Phylogenetics](https://www.ahl27.com/OtherTutorials/articles/BuildingTrees.html)
 
 This tutorial is an introduction to constructing phylogenetic trees and covers common methods, the algorithmic processes behind them, 
 and R code implementations so you can follow along! This should be a good tutorial for anyone new to phylogenetics that wants to 
@@ -20,3 +20,11 @@ Along the way, I demonstrate methods for sequence alignment, gene calling and an
 genes, and building phylogenetic trees from sequencing data. Once we've covered all of those topics, we'll use these methods
 (and some new software written by yours truly) to identify coevolving gene clusters from a dataset of sequencing data in order to predict
 novel gene function. This tutorial is more focused on code implementations than the Introduction to Phylogenetics tutorial.
+
+## [Phylogenetic Tree Distance]((https://www.ahl27.com/OtherTutorials/articles/ComparingTrees.html))
+
+This tutorial builds off the Intro to Phylogenetics tutorial by showcasing a number of methods for comparing phylogenies. Phylogenies are notoriously difficult to compare due to their complex topolgy, and a number of methods have been created to calculate distances between them. Most of the methods detailed in this tutorial are accompanied by examples of calculating the distances by hand to aid in comprehension.
+
+## [Multiple Testing Correction](https://www.ahl27.com/OtherTutorials/articles/MultipleTesting.html)
+
+Combining statistical tests isn't as simple as just averaging p-values--the more tests you run, the higher the chance of finding a spurious correlation due to chance. This tutorial covers common methods for correcting analyses for multiple testing under a variety of scenarios. 
