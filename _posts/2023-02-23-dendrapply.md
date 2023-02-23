@@ -186,7 +186,7 @@ dendrapply <- function(X, FUN, ...){
 
 ### Inorder traversal
 
-```{c}
+{% highlight c %}
 #include <R.h>
 #include <Rdefines.h>
 
@@ -381,13 +381,13 @@ SEXP do_dendrapply(SEXP tree, SEXP fn, SEXP env){
   UNPROTECT(1);
   return treecopy;
 }
-```
+{% endhighlight %}
 
 ### Postorder Traversal
 
 This code is very similar to the inorder traversal--if both are to be implemented, I'd probably refactor these a lot into a more concise set of code. I haven't gotten around to it yet, but since there's only a handful of different lines between the two files it should be fairly straightforward.
 
-```{c}
+{% highlight c %}
 #include <R.h>
 #include <Rdefines.h>
 
@@ -572,4 +572,4 @@ SEXP do_dendrapply(SEXP tree, SEXP fn, SEXP env){
   UNPROTECT(1);
   return treecopy;
 }
-```
+{% endhighlight %}
