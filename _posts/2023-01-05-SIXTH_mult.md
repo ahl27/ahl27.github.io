@@ -1,7 +1,7 @@
 ---
 title: '6502 FORTH, Part 5: Multiplication for Peasants'
 date: 2023-01-05
-permalink: /posts/2022/12/SIXTH-mult/
+permalink: /posts/2023/01/SIXTH-mult/
 tags:
   - blog posts
   - 6502
