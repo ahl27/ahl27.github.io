@@ -94,53 +94,84 @@ There are a few things about the implementation of this that make things difficu
 
 The naive approach is to just put all the nodes into a linked list, apply the function to every node, then rebuild the tree. Unfortunately, this rapidly exhausts the available space we have on the protection stack. Instead, we have to work slightly smarter. 
 
-It turns out that the order in which we apply the function to the nodes changes what the optimal implementation is.
+We can get around this issue by immediately assigning the value of `f(node)` to the parent node. If the parent node is protected, the value assigned to it will be protected as well. This means that, as long as we ensure the parent is always protected, we don't need any extraneous protection calls.
 
-The most efficient implementation uses a post-order traversal, which can apply `f` to all nodes using three slots on the protection stack. This is the schema outlined in the previous example. The initial tree is protected, which automatically protects all child nodes. Then, we create the linked list as shown and traverse the tree structure in post-order fashion. We call `PROTECT` on the output of the function applied to each node, but then the value is immediately assigned to the parent using `SET_VECTOR_ELT`, which is already protected and thus protects the child by default. This requires one protection for the overall tree, one for the R function call, and one for the transient result of the function applied to a node. This implementation also has the nice property that all children of a particular node are computed prior to applying the function to the given node, meaning that the following functions become possible:
+I've implemented two methods for `dendrapply`: a pre-order traversal and a post-order traversal. The final implementation for both uses a maximum of 3 slots on the protection stack, and no recursive function calls. The original tree consumes the first `PROTECT` call, which protects all its children until they're modified. When each node is evaluated, we use a `PROTECT` call to create the R expression to be called and a second to protect the `SEXP` returned from the function. This value is then assigned to the parent node using `SET_VECTOR_ELT`, which protects the value. Since protection is by value and not by reference, we can safely store this new value in the linked list. 
+
+The result is a little funky in the pre-order case: we use `VECTOR_ELT` on the parent to get the node, call the function on it, replace the node using `SET_VECTOR_ELT` on the parent, and then populate the reference in the linked list by calling `VECTOR_ELT` on the parent a second time. This ensures we always have protected values.
+
+With a post-order traversal, the implementation is a little cleaner. Since the children of each node are always evaluated prior to the node itself, we don't need to recall `VECTOR_ELT` after calling the function. Instead, we can just merge the nodes and continue.
+
+The main difference for end users between the two traversals is that, for a given node `n`, pre-order traversal will always evaluate `f(n)` *before any of its children*, whereas post-order traversal will always evaluate `f(n)` *after all of its children*. Pre-order is the default for consistency with `stats::dendrapply`, which used a pre-order traversal. The post-order method allows for some new functions, such as the following:
 
 {% highlight R %}
-exFunc <- function(x){
-  attr(x, 'newA') <- 'a'
-  if(is.null(attr(x, 'leaf'))){
-    cat(attr(x[[1]], 'newA'), attr(x[[2]], 'newA'))
-    cat('\n')
+f <- function(x){
+  if(!is.null(attr(x, 'leaf'))){
+    v <- as.character(attr(x, 'label'))
+  } else {
+    v <- paste0(attr(x[[1]], 'newattr'), attr(x[[2]], 'newattr'))
   }
+  attr(x, 'newattr') <- v
   x
 }
 {% endhighlight %}
 
-This function assigns a new attribute to the current node, then prints the childrens' value for that new attribute. This finds values using the new implementation, but not the old:
+This function assigns a new attribute equal to the label if it's a leaf, or the concatenation of the child nodes' new attributes. The default application of `dendrapply` will only create new attributes for the leaves, and will return `character(0)` for any internal nodes. However, using `how='post.order'` will ensure we evaluate the children first, meaning that internal nodes will be assigned a non-empty value:
 
 {% highlight R %}
-library(dendextend)
-
 # dendrogram with 3 leaves and two internal nodes
-dend <- 1:3 %>%
-          dist() %>%
-          hclust() %>%
-          as.dendrogram() 
+dend <- as.dendrogram(hclust(dist(1:3)))
 
+# Base stats application
 stats::dendrapply(dend, exFunc)
-# Prints nothing
+attr(dend, 'newattr')
+# > character(0)
 
-new_dendrapply(dend, exFunc)
-# Prints:
-# a a
-# a a
+# pre-order (default)
+dendrapply(dend, exFunc, how='pre.order')
+attr(dend, 'newattr')
+# > character(0)
+
+# post-order
+new_dendrapply(dend, exFunc, how='post.order')
+attr(dend, 'newattr')
+# > "312"
 {% endhighlight %}
 This capability is something I have found myself wishing for often in `dendrapply`. 
 
-The caveat of this approach is that it differs from the current implementation of `dendrapply`. `stats::dendrapply` is currently implemented using an inorder traversal of nodes, which packages like `dendextend` rely upon for their expected output. As a result, using a postorder-based `dendrapply` will likely break packages currently using dendrapply. This could be resolved by adding in an additional option or alias to distinguish the old from the new dendrapply, or by implementing an inorder based `dendrapply`. It may be worthwhile to implement a `how=c("in.order", "post.order", "pre.order")` option, with the default method `"in.order"`. This would be relatively trivial with the implementations I have, and would not break old packages.
 
-The inorder traversal can also be implemented with constant protection stack size, although the implementation is a little clunky. Each transient node result is assigned to the parent using `SET_VECTOR_ELT`, then the result is populated into the current value. Subtree merging will re-assign values up to the parents since we cannot guarantee that the children of a given node are identical when we make the first merge. However, this approach is able to preserve constant stack space. 
+Tentative Future Additions
+--------
 
-A preorder traversal is definitely possible, but I haven't dedicated any time to figuring out how to implement it. Breadth-first traversals are also easily implementable by making elements insert at the end of the linked list rather than at the next position.
+A inorder traversal is definitely possible, but I haven't dedicated any time to figuring out how to implement it. I'm not sure if these are worth making; I can't think of a great use-case for applying functions according to an in-order traversal. The implementation would use the almost same code as the post-order case, although nodes would be added by inserting the right element next and the left element at the end of the list. I'm not sure if inorder traversals are defined for multifurcating trees, which is another complicating factor.
 
+Breadth-first traversals are also easily implementable by making elements insert at the end of the linked list rather than at the next position. However, the behavior of these can be a little odd with `dendrogram` objects (the result is fairly counterintuitive to me at least). These may be worth exploring as options in the future.
+
+Something I would like to implement is a "flat" application of `dendrapply`, similar to the flexibility offered in `rapply`. Providing an option to get the results as a flat list/vector could have very good usecases. To illustrate what this would look like, imagine the following tree with shown labels:
+
+```
+     a
+   /   \
+  b     c
+ / \   / \
+e   f g   h
+```
+I'd like the function to be able to do something like:
+
+```
+> dendrapply(exTree, \(x) attr(x, 'label'), how='post.order', flatten=TRUE)
+[1] "e" "f" "b" "g" "h" "c" "a"
+
+> dendrapply(exTree, \(x) attr(x, 'label'), how='pre.order', flatten=TRUE)
+[1] "a" "b" "e" "f" "c" "g" "h"
+```
+
+Note that this is different from `dendrapply` in that the result is a flat vector and not a nested list, and different from `rapply` in that the result is the function applied to leaves *and* internal nodes.
 
 Benchmarking
 -------
 
-Speed gains from this implementation are relatively modest, although I suspect that further optimization could improve runtime. As the main improvement of this is in the backend and not the function call itself, it should have relatively consistent performance regardless of the input function. Testing was performed on a simple function to add an attribute to each node, as well as a recursive one that calls `rapply` at every node. Speedup is consistent regardless of function, with the average boost in runtime approximately 2x on my machine (2021 MacBook Pro, M1 Pro, 32GB RAM). Looking at the memory usage of the functions, my new implementation has significantly decreased usage due to fewer function call frames allocated on the stack.
+Speed gains from this implementation are relatively modest, although I suspect that further optimization could improve runtime. As the main improvement of this is in the backend and not the function call itself, it should have relatively consistent performance regardless of the input function. Testing was performed on a simple function to add an attribute to each node, as well as a recursive one that calls `rapply` at every node. Speedup is consistent regardless of function, with the average boost in runtime approximately 1.5-3x on my machine (2021 MacBook Pro, M1 Pro, 32GB RAM). Looking at the memory usage of the functions, my new implementation has significantly decreased usage due to fewer function call frames allocated on the stack.
 
 ![](/images/blog_images/dendrapply_benchmark1.png)
 
@@ -159,10 +190,10 @@ Complete Code:
 This has some quirks to make it a drop-in replacement for `stats::dendrapply`. The behavior of the original function when the provided function does not return a `dendrogram` or `list`-like object is a little counterintuitive to me, but after lots of testing this implementation should replicate it all accurately.
 
 {% highlight R %}
-dendrapply <- function(X, FUN, ..., how=c("in.order", "post.order")){
+dendrapply <- function(X, FUN, ..., how=c("pre.order", "post.order")){
   apply_method <- match.arg(how)
   travtype <- switch(apply_method,
-                     in.order=0L,
+                     pre.order=0L,
                      post.order=1L)
   ## Free allocated memory in case of early termination
   on.exit(.C("free_dendrapply_list"))
@@ -391,7 +422,7 @@ SEXP new_apply_dend_func(ll_S *head, SEXP f, SEXP env, short travtype){
  * account for this.
  */
 SEXP do_dendrapply(SEXP tree, SEXP fn, SEXP env, SEXP order){
-  /* 0 for inorder, 1 for postorder */
+  /* 0 for preorder, 1 for postorder */
   short travtype = INTEGER(order)[0];
   SEXP treecopy;
   PROTECT_WITH_INDEX(treecopy = duplicate(tree), &headprot);
