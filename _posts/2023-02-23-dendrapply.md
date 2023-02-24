@@ -8,9 +8,6 @@ tags:
   - C
 ---
 
-Dendrapply
--------
-
 As someone who specializes comparative phylogenomics, I work a lot with phylogenetic trees. Trees are represented in R as `dendrogram` objects, which are essentially a series of nested lists. Each "node" of the tree is a list with multiple members (two if a binary tree, but `dendrogram` objects are not constrained to be binary), each of which is another `dendrogram` object. The leaves are special cases in that they have length 1 and an additional property `leaf`, which is set to `TRUE`.
 
 R has a number of functions called `apply` functions, whose primary purpose is to apply a function to a set of things in a particular way. Commonly used examples are `lapply` to apply a function over a list-like object, `tapply` to apply a function to a set of objects grouped based on a factor, `rapply` to recursively apply a function to an object, or `apply` to apply a function to a matrix/array. 
