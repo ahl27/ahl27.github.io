@@ -139,6 +139,8 @@ attr(dend, 'newattr')
 
 This capability is something I have found myself wishing for often in `dendrapply`. Calculating Fitch Parsimony for a phylogeny is a great example of a method that relies upon a post-order traversal.
 
+Note that this implementation depends on the `leaf` attributes of dendrograms being correct. Leaf nodes should have `leaf=TRUE`, and internal nodes should either have `NULL` or `FALSE` for the `leaf` attribute. If users decide to fiddle with these values, they are proceeding at their own risk (undefined behavior).
+
 
 Tentative Future Additions
 --------
@@ -171,7 +173,7 @@ Note that this is different from `dendrapply` in that the result is a flat vecto
 Benchmarking
 -------
 
-Speed gains from this implementation are relatively modest, although I suspect that further optimization could improve runtime. As the main improvement of this is in the backend and not the R function calls themselves, it should have relatively consistent performance regardless of the input function. Testing was performed on a simple function to add an attribute to each node, as well as a recursive one that calls `rapply` at every node. Speedup is relatively consistent regardless of function, with the average boost in runtime approximately 1.5-3x on my machine (2021 MacBook Pro, M1 Pro, 32GB RAM). Calling `rapply` had less of a speedup compared to faster functions, likely because the runtime of the called R function dominates the overall runtime of the `dendrapply` call. Looking at the memory usage of the functions, my new implementation has significantly decreased usage due to fewer function call frames allocated on the stack.
+Speed gains from this implementation are relatively modest, although I suspect that further optimization could improve runtime. As the main improvement of this is in the backend and not the R function calls themselves, it should have relatively consistent performance regardless of the input function. Testing was performed on a simple function to add an attribute to each node, as well as a recursive one that calls `rapply` at every node. Speedup is relatively consistent regardless of function, with the average boost in runtime approximately 1.5-3x on my machine (2021 MacBook Pro, M1 Pro, 32GB RAM). Calling `rapply` had less of a speedup compared to faster functions, likely because the runtime of the called R function dominates the overall runtime of the `dendrapply` call. Benchmarking using a minimal function to measure only the impact of the new apply function resulted in an average speedup of 2.5-3x depending on tree size. Looking at the memory usage of the functions, my new implementation has significantly decreased usage due to fewer function call frames allocated on the stack. However, this is difficult to benchmark since the original function uses R to allocate memory and the new function allocates in C.
 
 ![](/images/blog_images/dendrapply_benchmark1.png)
 
@@ -185,253 +187,16 @@ Post-order failed many tests because methods in `dendextend` depend on the pre-o
 Complete Code:
 ---------
 
+The complete code is available [on Github](https://github.com/ahl27/new_dendrapply). What follows are some comments on the code contained within the files.
+
 ### R Script
+
+[Link to R Script](https://github.com/ahl27/new_dendrapply/blob/05c56ae0043bea7cb3d5eb3a5ac5741a4b08b802/new_dendrapply.R)
 
 This has some quirks to make it a drop-in replacement for `stats::dendrapply`. The behavior of the original function when the provided function does not return a `dendrogram` or `list`-like object is a little counterintuitive to me, but after lots of testing this implementation should replicate it all accurately. There is a weird quirk where calling `VECTOR_ELT` on an `SEXP` seems to unclass the object, and I was running into problems with the input nodes not being of type `dendrogram`. I thought it was fairly safe to just reclass the object as `'dendrogram'` when it comes to the function, since we expect to be applying the function to `dendrogram` objects anyway (and children of a `dendrogram` should also be `dendrogram`).
 
-{% highlight R %}
-dendrapply <- function(X, FUN, ..., how=c("pre.order", "post.order")){
-  apply_method <- match.arg(how)
-  travtype <- switch(apply_method,
-                     pre.order=0L,
-                     post.order=1L)
-  ## Free allocated memory in case of early termination
-  on.exit(.C("free_dendrapply_list"))
-  stopifnot(is(X, 'dendrogram'))
-  wrapper <- \(node) {
-    # I'm not sure why VECTOR_ELT unclasses the object
-    # nodes coming in should always be dendrograms
-    class(node) <- 'dendrogram'
-    res<-FUN(node, ...)
-    if(length(node)!=1){
-      if(!(inherits(res,c('dendrogram', 'list')))){
-        res <- lapply(unclass(node), \(x) x)
-      } 
-    }
-    res
-  }
-  # If we only have one node, it'll hang
-  # We can get around this by just applying the function to the leaf
-  # and returning--no need for C code here.
-  if(!is.null(attr(X, 'leaf')) && attr(X,'leaf')){
-    return(wrapper(X))
-  }
-  return(.Call("do_dendrapply", X, wrapper, parent.frame(), travtype))
-}
-{% endhighlight %}
-
 ### C Code
 
+[Link to C code](https://github.com/ahl27/new_dendrapply/blob/05c56ae0043bea7cb3d5eb3a5ac5741a4b08b802/new_dendrapply.c)
+
 The C code is much longer. The main functions exposed to R are `do_dendrapply()` via `.Call` interface, and `free_dendrapply_list()` via `.C` interface. The brunt of the computation is done in `new_apply_dend_func`, which will likely be either renamed in the future or rolled into `do_dendrapply()`. Note that checking for leaf nodes depends on the leaves having a non-null value for `attr(node, 'leaf')`; if someone messes with the nodes it could hang. Probably deserving of a check to correct for that--I'm not quite sure what the right way to do it is, but it's likely sufficient to throw an error if we encounter a non-leaf node with length 1. At the very least, a timeout should probably be added.
-
-{% highlight c %}
-#include <R.h>
-#include <Rdefines.h>
-
-/*
- * Linked list struct
- *
- * Each node of the tree is added with the following args:
- *  -   node: tree node, as a pointer to SEXPREC object
- *  -      v: location in parent node's list
- *  - isLeaf: Counter encoding unmerged children. 0 if leaf or leaf-like subtree.
- *  - parent: pointer to node holding the parent node in the tree
- *  -   next: next linked list element
- * 
- */
-typedef struct ll_S {
-  SEXP node;
-  int v;
-  int isLeaf;
-  struct ll_S *parent;
-  struct ll_S *next;
-} ll_S;
-
-
-/* Global variable for on.exit() free */
-ll_S *ll;
-PROTECT_INDEX headprot;
-
-/* 
- * Frees the global linked list structure.
- *
- * Called using on.exit() in R for cases where
- * execution is stopped early.
- */
-void free_dendrapply_list(){
-  ll_S *ptr = ll;
-  while(ll){
-    ll = ll->next;
-    free(ptr);
-    ptr=ll;
-  }
-
-  return;
-}
-
-/* Function to allocate a LL node */
-ll_S* alloc_link(ll_S* parentlink, SEXP node, int i, short travtype){
-  ll_S *link = malloc(sizeof(ll_S));
-
-  if(travtype == 0){
-    link->node = NULL;
-    link->isLeaf = -1;
-  } else if (travtype == 1){
-    SEXP curnode;
-    curnode = VECTOR_ELT(node, i);
-    link->node = curnode;
-    link->isLeaf = isNull(getAttrib(curnode, install("leaf"))) ? length(curnode) : 0;
-  }
-
-  link->next = NULL;
-  link->v = i;
-  link->parent = parentlink;
-
-  return link;
-}
-
-
-/*
- * Main workhorse function.
- * 
- * This function traverses the tree INORDER (as in stats::dendrapply)
- * and applies the function to each node, then adds its children to
- * the linked list. Once all the children of a node have been processed,
- * the child subtrees are combined into the parent. R ensures that the
- * dendrogram isn't a leaf, so this function assmes the dendrogram has 
- * at least two members.
- */
-SEXP new_apply_dend_func(ll_S *head, SEXP f, SEXP env, short travtype){
-  ll_S *ptr, *prev, *parent;
-  SEXP node, call, newnode;
-
-  if(travtype == 0){
-    call = PROTECT(LCONS(f, LCONS(head->node, R_NilValue)));
-    REPROTECT(head->node = R_forceAndCall(call, 1, env), headprot);
-    UNPROTECT(1);
-  }
-
-  int n;
-  ptr = head;
-  prev = head;
-  while(ptr){
-    R_CheckUserInterrupt();
-    /* lazily populate node, apply function to it as well */
-    if (travtype==0 && ptr->isLeaf==-1){
-      parent = ptr->parent;
-      newnode = VECTOR_ELT(parent->node, ptr->v);
-      ptr->isLeaf = isNull(getAttrib(newnode, install("leaf"))) ? length(newnode) : 0;
-      call = PROTECT(LCONS(f, LCONS(newnode, R_NilValue)));
-      newnode = PROTECT(R_forceAndCall(call, 1, env));
-      SET_VECTOR_ELT(parent->node, ptr->v, newnode);
-      UNPROTECT(2);
-
-      /* double ELT because it avoids a protect */
-      ptr->node = VECTOR_ELT(parent->node, ptr->v);
-    }
-
-    if (ptr->isLeaf == -2){
-      /* these are nodes flagged for deletion */
-      prev->next = prev->next->next;
-      free(ptr);
-      ptr = prev->next;
-
-    } else if(ptr->isLeaf == 0){
-      /* 
-      * If the LL node is a leaf or completely merged subtree,
-      * apply the function to it and then merge it upwards
-      */
-      while(ptr->isLeaf == 0 && ptr != head){
-        /* 
-         * merge upwards, 
-         * protection unneeded since parent already protected 
-         */
-        prev = ptr->parent;
-        if(travtype == 0){
-          SET_VECTOR_ELT(prev->node, ptr->v, ptr->node);
-        } else if(travtype == 1){
-          call = PROTECT(LCONS(f, LCONS(ptr->node, R_NilValue)));
-          newnode = PROTECT(R_forceAndCall(call, 1, env));
-
-          prev = ptr->parent;
-          SET_VECTOR_ELT(prev->node, ptr->v, newnode);
-          UNPROTECT(2);
-        }
-
-        prev->isLeaf -= 1;
-
-        /* flag node for deletion later */
-        ptr->isLeaf = -2;
-        ptr = prev;
-        prev = ptr;
-        R_CheckUserInterrupt();
-      }
-
-      /* go to the next element so we don't re-add */
-      ptr = ptr->next;
-
-    } else {
-      /* ptr->isLeaf != 0, so we need to add nodes */
-      node = ptr->node;
-      n = length(node);
-
-      if(isNull(getAttrib(node, install("leaf")))){
-        ll_S *newlink;
-        /*
-         * iterating from end to beginning to ensure 
-         * we traverse depth-first instead of breadth
-         */
-        for(int i=n-1; i>=0; i--){
-          newlink = alloc_link(ptr, node, i, travtype);
-          newlink->next = ptr->next;
-          ptr->next = newlink;
-        }
-      }
-      prev = ptr;
-      ptr = ptr->next; 
-    }
-  }
-
-  if (travtype == 1){
-    call = PROTECT(LCONS(f, LCONS(head->node, R_NilValue)));
-    REPROTECT(head->node = R_forceAndCall(call, 1, env), headprot);
-    UNPROTECT(1);
-  }
-  
-  return head->node;
-}
-
-/*
- * Main Function
- * 
- * Calls helper functions to build linked list,
- * apply function to all nodes, and reconstruct
- * the dendrogram object. Attempts to free the linked list 
- * at termination, but note memory free not guaranteed to 
- * execute here due to R interrupts. on.exit() used in R to 
- * account for this.
- */
-SEXP do_dendrapply(SEXP tree, SEXP fn, SEXP env, SEXP order){
-  /* 0 for preorder, 1 for postorder */
-  short travtype = INTEGER(order)[0];
-  SEXP treecopy;
-  PROTECT_WITH_INDEX(treecopy = duplicate(tree), &headprot);
-
-  /* Add the top of the tree into the list */
-  ll = malloc(sizeof(ll_S));
-  ll->node = treecopy;
-  ll->next = NULL;
-  ll->parent = NULL;
-  ll->isLeaf = length(treecopy);
-  ll->v = -1;
-
-  /* Apply the function to the list */
-  treecopy = new_apply_dend_func(ll, fn, env, travtype);
-  
-  /* Attempt to free the linked list and unprotect */
-
-  free_dendrapply_list();
-  UNPROTECT(1);
-  return treecopy;
-}
-{% endhighlight %}
