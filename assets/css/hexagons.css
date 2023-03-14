@@ -191,10 +191,10 @@ body {
 }
 
 #tutorialbutton::before{
-  background-image: url("/images/hexagon_images/tutorial_before.svg");
+  background-image: url("/images/hexagon_images/tutorials_before.svg");
 }
 #tutorialbutton::after {
-  background-image: url("/images/hexagon_images/tutorial_before.svg");  
+  background-image: url("/images/hexagon_images/tutorials_before.svg");  
 }
 
 #linkedinbutton::before{
