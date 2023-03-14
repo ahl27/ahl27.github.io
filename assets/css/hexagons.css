@@ -215,10 +215,10 @@ body {
 }
 
 #otherbutton::before{
-  background-image: url("/images/hexagon_images/martini_orange.svg");
+  background-image: url("/images/hexagon_images/other_before.svg");
 }
 #otherbutton::after {
-  background-image: url("/images/hexagon_images/martini_blue.svg");  
+  background-image: url("/images/hexagon_images/other_after.svg");  
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
