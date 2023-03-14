@@ -218,12 +218,10 @@ body {
 }
 
 #otherbutton::before{
-  font: var(--fa-font-solid);
-  content: "\f561"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #otherbutton::after {
-  font: var(--fa-font-regular);
-  content: "\f561"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
