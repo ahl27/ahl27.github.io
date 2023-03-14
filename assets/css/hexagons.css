@@ -3,16 +3,16 @@
     padding: 0;
 }
 body {
-    background: rgb(123, 158, 158);
+    background: #ffffff;
 }
 #hexGrid {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
-  margin: 0 auto;
+  width: 60%;
+  margin: 5% auto;
   overflow: hidden;
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+  font-size: 50px;
   list-style-type: none;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 /*** HEX CONTENT **********************************************************************/
-.hex img {
+/* .hex img {
   left: -100%;
   right: -100%;
   width: auto;
@@ -100,15 +100,129 @@ body {
   -webkit-transform:translate3d(0,100%,0);
       -ms-transform:translate3d(0,100%,0);
           transform:translate3d(0,100%,0);
-}
+} */
 
 
 /*** HOVER EFFECT  **********************************************************************/
-.hexLink:hover h1, .hexLink:focus h1,
+/* .hexLink:hover h1, .hexLink:focus h1,
 .hexLink:hover p, .hexLink:focus p{
   -webkit-transform:translate3d(0,0,0);
       -ms-transform:translate3d(0,0,0);
           transform:translate3d(0,0,0);
+} */
+.hexLink::before, .hexLink::after{
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 1;
+}
+.hexLink::before{
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+.hexLink::after{
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hexLink:hover::before{
+  opacity: 0;
+}
+
+#blogbutton::before{
+  font: var(--fa-font-solid);
+  content: "\e1e4"
+}
+#blogbutton::after {
+  font: var(--fa-font-regular);
+  content: "\e1e4"
+}
+
+#mastodonbutton::before{
+  font: var(--fa-font-brands);
+  content: "\f4f7"
+}
+#mastodonbutton::after{
+  font: var(--fa-font-brands);
+  content: "\f4f7"
+}
+
+#githubbutton::before{
+  font: var(--fa-font-brands);
+  content: "\f09b"
+}
+#githubbutton::after{
+  font: var(--fa-font-brands);
+  content: "\f09b"
+}
+
+#emailbutton::before{
+  font: var(--fa-font-solid);
+  content: "\f0e0"
+}
+#emailbutton::after {
+  font: var(--fa-font-regular);
+  content: "\f0e0"
+}
+
+#cvbutton::before{
+  font: var(--fa-font-solid);
+  content: "\f65c"
+}
+#cvbutton::after {
+  font: var(--fa-font-regular);
+  content: "\f65c"
+}
+
+#tutorialbutton::before{
+  font: var(--fa-font-solid);
+  content: "\e53d"
+}
+#tutorialbutton::after {
+  font: var(--fa-font-regular);
+  content: "\e53d"
+}
+
+#linkedinbutton::before{
+  font: var(--fa-font-brands);
+  content: "\f08c"
+}
+#linkedinbutton::after{
+  font: var(--fa-font-brands);
+  content: "\f08c"
+}
+
+#otherbutton::before{
+  font: var(--fa-font-solid);
+  content: "\f183"
+}
+#otherbutton::after {
+  font: var(--fa-font-regular);
+  content: "\f183"
+}
+
+#projectsbutton::before{
+  font: var(--fa-font-solid);
+  content: "\f7d9"
+}
+#projectsbutton::after {
+  font: var(--fa-font-regular);
+  content: "\f7d9"
+}
+
+#otherbutton::before{
+  font: var(--fa-font-solid);
+  content: "\f561"
+}
+#otherbutton::after {
+  font: var(--fa-font-regular);
+  content: "\f561"
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
@@ -117,14 +231,14 @@ body {
     padding-bottom: 4.4%
   }
   .hex {
-    width: 20%; /* = 100 / 5 */
+    width: 25%; /* = 100 / 5 */
   }
-  .hex:nth-child(9n+6){ /* first hexagon of even rows */
-    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+  .hex:nth-child(7n+5){ /* first hexagon of even rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
   }
 }
 
-@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+@media (max-width: 1200px) and (min-width:1101px) { /* <- 4-3  hexagons per row */
   #hexGrid{
     padding-bottom: 5.5%
   }
@@ -136,7 +250,7 @@ body {
   }
 }
 
-@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+@media (max-width: 1100px) and (min-width:601px) { /* <- 3-2  hexagons per row */
   #hexGrid{
     padding-bottom: 7.4%
   }
