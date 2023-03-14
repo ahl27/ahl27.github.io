@@ -14,6 +14,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 50px;
   list-style-type: none;
+  position: relative;
   z-index: 300;
 }
 
@@ -137,84 +138,66 @@ body {
 }
 
 #blogbutton::before{
-  font: var(--fa-font-solid);
-  content: "\e1e4"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #blogbutton::after {
-  font: var(--fa-font-regular);
-  content: "\e1e4"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #mastodonbutton::before{
-  font: var(--fa-font-brands);
-  content: "\f4f7"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #mastodonbutton::after{
-  font: var(--fa-font-brands);
-  content: "\f4f7"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #githubbutton::before{
-  font: var(--fa-font-brands);
-  content: "\f09b"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #githubbutton::after{
-  font: var(--fa-font-brands);
-  content: "\f09b"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #emailbutton::before{
-  font: var(--fa-font-solid);
-  content: "\f0e0"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #emailbutton::after {
-  font: var(--fa-font-regular);
-  content: "\f0e0"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #cvbutton::before{
-  font: var(--fa-font-solid);
-  content: "\f65c"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #cvbutton::after {
-  font: var(--fa-font-regular);
-  content: "\f65c"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #tutorialbutton::before{
-  font: var(--fa-font-solid);
-  content: "\e53d"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #tutorialbutton::after {
-  font: var(--fa-font-regular);
-  content: "\e53d"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #linkedinbutton::before{
-  font: var(--fa-font-brands);
-  content: "\f08c"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #linkedinbutton::after{
-  font: var(--fa-font-brands);
-  content: "\f08c"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #otherbutton::before{
-  font: var(--fa-font-solid);
-  content: "\f183"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #otherbutton::after {
-  font: var(--fa-font-regular);
-  content: "\f183"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #projectsbutton::before{
-  font: var(--fa-font-solid);
-  content: "\f7d9"
+  background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #projectsbutton::after {
-  font: var(--fa-font-regular);
-  content: "\f7d9"
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
 #otherbutton::before{
