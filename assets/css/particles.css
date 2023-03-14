@@ -34,20 +34,15 @@
     z-index: 100;
 }
 .title{
-    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     font-weight: 100;
-    letter-spacing: 15px;
+    letter-spacing: 8px;
     padding: 12.5px 25px;
     text-shadow: 1px 1px 10px black;
     border: 2px solid rgba( 255, 255, 255, .5);
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    bottom: 0;
-    position: absolute;
     border-radius: 4px;
-    color: white;
+    color: black;
+    position:fixed;
     z-index: 300;
 }
 
