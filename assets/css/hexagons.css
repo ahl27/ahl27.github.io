@@ -137,6 +137,13 @@ body {
   opacity: 0;
 }
 
+#homebutton::before{
+  background-image: url("/images/hexagon_images/martini_orange.svg");
+}
+#homebutton::after {
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
+}
+
 #blogbutton::before{
   background-image: url("/images/hexagon_images/martini_orange.svg");
 }
@@ -169,6 +176,13 @@ body {
   background-image: url("/images/hexagon_images/martini_orange.svg");
 }
 #cvbutton::after {
+  background-image: url("/images/hexagon_images/martini_blue.svg");  
+}
+
+#talksbutton::before{
+  background-image: url("/images/hexagon_images/martini_orange.svg");
+}
+#talksbutton::after {
   background-image: url("/images/hexagon_images/martini_blue.svg");  
 }
 
