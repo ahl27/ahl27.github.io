@@ -17,8 +17,7 @@
     z-index: 1;
 }
 .blur{
-    background-color: #212121; 
-    /*background-image: url("https://github.com/ricardoolivaalonso/recursos/blob/master/bg.jpg?raw=true");*/
+    background-color: #FFFFFF; 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

@@ -18,7 +18,7 @@ function main(){
         div.style.marginTop = rndh+"px";
         div.style.width = widthpt+"px";
         div.style.height = widthpt+"px";
-        div.style.background = "white";
+        div.style.background = "silver";
         div.style.opacity = opty;
         div.style.animation = "move "+anima+"s ease-in infinite ";
         particles.appendChild(div);
