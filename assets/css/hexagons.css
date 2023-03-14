@@ -132,9 +132,13 @@ body {
   background-size: 110%;
   background-repeat: no-repeat;
   background-position: center;
+  opacity: 0;
 }
 .hexLink:hover::before{
   opacity: 0;
+}
+.hexLink:hover::after{
+  opacity: 1;
 }
 
 #homebutton::before{
