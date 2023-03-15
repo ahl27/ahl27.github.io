@@ -148,70 +148,70 @@ body {
   background-image: url("/images/hexagon_images/home_before.svg");
 }
 #homebutton::after {
-  background-image: url("/images/hexagon_images/home_before.svg");  
+  background-image: url("/images/hexagon_images/home_after.svg");  
 }
 
 #blogbutton::before{
   background-image: url("/images/hexagon_images/blog_before.svg");
 }
 #blogbutton::after {
-  background-image: url("/images/hexagon_images/blog_before.svg");  
+  background-image: url("/images/hexagon_images/blog_after.svg");  
 }
 
 #mastodonbutton::before{
   background-image: url("/images/hexagon_images/mastodon_before.svg");
 }
 #mastodonbutton::after{
-  background-image: url("/images/hexagon_images/mastodon_before.svg");  
+  background-image: url("/images/hexagon_images/mastodon_after.svg");  
 }
 
 #githubbutton::before{
   background-image: url("/images/hexagon_images/github_before.svg");
 }
 #githubbutton::after{
-  background-image: url("/images/hexagon_images/github_before.svg");  
+  background-image: url("/images/hexagon_images/github_after.svg");  
 }
 
 #emailbutton::before{
   background-image: url("/images/hexagon_images/email_before.svg");
 }
 #emailbutton::after {
-  background-image: url("/images/hexagon_images/email_before.svg");  
+  background-image: url("/images/hexagon_images/email_after.svg");  
 }
 
 #cvbutton::before{
   background-image: url("/images/hexagon_images/cv_before.svg");
 }
 #cvbutton::after {
-  background-image: url("/images/hexagon_images/cv_before.svg");  
+  background-image: url("/images/hexagon_images/cv_after.svg");  
 }
 
 #talksbutton::before{
   background-image: url("/images/hexagon_images/talks_before.svg");
 }
 #talksbutton::after {
-  background-image: url("/images/hexagon_images/talks_before.svg");  
+  background-image: url("/images/hexagon_images/talks_after.svg");  
 }
 
 #tutorialbutton::before{
   background-image: url("/images/hexagon_images/tutorials_before.svg");
 }
 #tutorialbutton::after {
-  background-image: url("/images/hexagon_images/tutorials_before.svg");  
+  background-image: url("/images/hexagon_images/tutorials_after.svg");  
 }
 
 #linkedinbutton::before{
   background-image: url("/images/hexagon_images/linkedin_before.svg");
 }
 #linkedinbutton::after{3
-  background-image: url("/images/hexagon_images/linkedin_before.svg");  
+  background-image: url("/images/hexagon_images/linkedin_after.svg");  
 }
 
 #projectsbutton::before{
   background-image: url("/images/hexagon_images/projects_before.svg");
 }
 #projectsbutton::after {
-  background-image: url("/images/hexagon_images/projects_before.svg");  
+  background-image: url("/images/hexagon_images/projects_after.svg");  
 }
 
 #otherbutton::before{
