@@ -203,7 +203,7 @@ body {
 #linkedinbutton::before{
   background-image: url("/images/hexagon_images/linkedin_before.svg");
 }
-#linkedinbutton::after{3
+#linkedinbutton::after{
   background-image: url("/images/hexagon_images/linkedin_after.svg");  
 }
 
