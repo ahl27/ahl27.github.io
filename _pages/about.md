@@ -3,8 +3,6 @@ permalink: /about
 title: "Aidan Lakshman"
 excerpt: "About me"
 author_profile: true
-redirect_from: 
-  - /about.html
 ---
 
 Welcome to my website! My name is Aidan Lakshman, and I'm a doctoral candidate at the University of Pittsburgh School of Medicine. My research advisor is [Dr. Erik Wright](https://www.isb.pitt.edu/people/faculty/erik-wright-phd) ([lab website](http://www.wrightlabscience.com/p/index.html)). I'm funded through the National Library of Medicine's T-15 training grant, and am on track to graduate in Spring 2025.

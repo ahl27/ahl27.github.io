@@ -34,15 +34,16 @@
     z-index: 100;
 }
 .title{
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: 5px;
     padding: 10px 15px;
-    text-shadow: 1px 1px 10px black;
+    text-shadow: 1px 1px 15px black;
     color: black;
     top: 0;
-    left: 0;
+    left: 41%;
     position:fixed;
     z-index: 300;
+    font-family: american typewriter, serif;
 }
 
 .particles{
