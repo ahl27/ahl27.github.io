@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 60%;
-  margin: 5% auto;
+  margin: 1% auto;
   overflow: hidden;
   font-family: 'Raleway', sans-serif;
   font-size: 50px;
@@ -192,7 +192,6 @@ body {
 
 @media (max-width: 1200px) and (min-width:1101px) { /* <- 4-3  hexagons per row */
   #hexGrid{
-    padding-top: 5%;
     padding-bottom: 5.5%
   }
   .hex {
@@ -205,7 +204,6 @@ body {
 
 @media (max-width: 1100px) and (min-width:601px) { /* <- 3-2  hexagons per row */
   #hexGrid{
-    padding-top: 2%;
     padding-bottom: 7.4%
   }
   .hex {
@@ -218,7 +216,6 @@ body {
 
 @media (max-width: 600px) { /* <- 2-1  hexagons per row */
   #hexGrid{
-    padding-top: 4%;
     padding-bottom: 11.2%
   }
   .hex {

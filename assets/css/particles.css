@@ -41,6 +41,8 @@
     color: black;
     top: 0;
     position:relative;
+    display:flex;
+    justify-content:center;
     z-index: 300;
     font-family: american typewriter, serif;
 }
