@@ -36,8 +36,21 @@
 .title{
     font-size: 17px;
     letter-spacing: 5px;
-    padding: 10px 15px;
+    padding-top: 10px;
+    padding-bottom: 2px;
     text-shadow: 1px 1px 15px black;
+    color: black;
+    top: 0;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    z-index: 300;
+    font-family: american typewriter, serif;
+}
+
+.subtitle{
+    font-size: 10px;
+    letter-spacing: 3px;
     color: black;
     top: 0;
     position:relative;
