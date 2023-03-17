@@ -33,20 +33,32 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ### Keyboards
 
-I love building mechanical keyboards (and honestly I have too many at this point). My favorite at the moment is the Qull, a sub-40% keyboard with lots of key combos. Unless mentioned otherwise, all of my keyboards use linear switches (Cherry reds or blacks) and XDA caps (though the Corne is pictured with DSAs that look nicer). 
+I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my WFH keyboard is the Qull.
 
 **QAZ/Qull**
 
-This board uses MT3 caps, with artisan caps from [Asymplex](https://www.asymplex.xyz/)!
+Cherry MX Black switches, MT3 BoW and WoB caps, and artisan caps from [Asymplex](https://www.asymplex.xyz/). 
 ![](../images/qazboard.png)
 
+**Waterfowl**
+
+Momoka Frog switches, nice!nanos, and the remainder of the MT3 BoW and WoB caps from the Qull. My first wireless!
+![](../images/waterfowl.png)
+
+
 **Helidox Corne**
+
+Cherry MX Silent Black switches with o-rings, pictured with DSA caps but currently using XDAs.
 ![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
 
 **OLKB Preonic**
+
+Cherry silent red switches, XDA caps.
 ![](../images/preonic.png)
 
 **Big Dill Extended v2**
+
+Cherry silent red switches, XDA caps.
 ![](../images/bde2.png)
 
 &nbsp;
