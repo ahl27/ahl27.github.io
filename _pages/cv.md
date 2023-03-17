@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 <p>&nbsp;</p>
-<embed src="../files/CV_2022.pdf" type='application/pdf'>
+<embed src="../files/CV_2023.pdf" type='application/pdf'>
 
 
 Not loading? [Download my CV here.](../files/CV_2022.pdf)
