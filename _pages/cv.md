@@ -12,4 +12,4 @@ redirect_from:
 <embed src="../files/CV_2023.pdf" type='application/pdf'>
 
 
-Not loading? [Download my CV here.](../files/CV_2022.pdf)
+Not loading? [Download my CV here.](../files/CV_2023.pdf)
