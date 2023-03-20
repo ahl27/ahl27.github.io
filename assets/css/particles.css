@@ -60,6 +60,19 @@
     font-family: american typewriter, serif;
 }
 
+.footertext{
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: black;
+    bottom: 0;
+    position: absolute;
+    right: 3px;
+    display:flex;
+    justify-content:center;
+    z-index: 300;
+    font-family: american typewriter, serif;
+}
+
 .particles{
     position: absolute;
     z-index: 200;
