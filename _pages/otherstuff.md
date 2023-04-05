@@ -20,6 +20,9 @@ popping boba. The bubbles are made from scratch!
 This is another one from The Aviary cocktail book, the Jungle Bird. It's layers of pineapple juice, campari, white rum, and dark rum, with rum infused boba
 bubbles suspended on the border between the campari and white rum. 
 
+![](/images/caviarcocktail.jpg)
+This was inspired by S1 E6 of Drink Masters on Netflix--I learned that there are ways to make "caviar" out of any cocktail! This was my first experiment with the technique; the bubbles are comprised of white rum, strawberry syrup, and lime, with 1% agar agar by weight added to create solid bubbles using cold oil spherification.
+
 -----
 ## Coffee
 I first really got into coffee while studying abroad in Japan! My host family founded [Kariomons Coffee Roasters](https://kariomons.com/), 
