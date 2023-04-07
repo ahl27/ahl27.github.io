@@ -33,33 +33,38 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ### Keyboards
 
-I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my WFH keyboard is the Qull.
+I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my main WFH keyboard is the Waterfowl.
 
 **QAZ/Qull**
 
 Cherry MX Black switches, MT3 BoW and WoB caps, and artisan caps from [Asymplex](https://www.asymplex.xyz/). 
-![](../images/qazboard.png)
+![](/images/qazboard.png)
 
 **Waterfowl**
 
 Momoka Frog switches, nice!nanos, and the remainder of the MT3 BoW and WoB caps from the Qull. My first wireless!
-![](../images/waterfowl.png)
+![](/images/waterfowl.png)
 
 
 **Helidox Corne**
 
 Cherry MX Silent Black switches with o-rings, pictured with DSA caps but currently using XDAs.
-![](../images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
+![](/images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
 
 **OLKB Preonic**
 
 Cherry silent red switches, XDA caps.
-![](../images/preonic.png)
+![](/images/preonic.png)
 
 **Big Dill Extended v2**
 
 Cherry silent red switches, XDA caps.
-![](../images/bde2.png)
+![](/images/bde2.png)
+
+**Tofu 65**
+
+Gateron brown switches, KBDfans OEM caps, brass weight. My first keyboard!
+![](/images/65keyboard.jpg)
 
 &nbsp;
 
