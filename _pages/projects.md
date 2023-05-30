@@ -53,7 +53,7 @@ Momoka Frog switches, nice!nanos, and the remainder of the MT3 BoW and WoB caps 
 
 **Helidox Corne**
 
-Cherry MX Silent Black switches with o-rings, pictured with DSA caps but currently using XDAs.
+Cherry MX Silent Black switches with o-rings, pictured with DSA caps but currently using MT3 Godspeed.
 ![](/images/FA569DF1-896A-4798-A179-EEA326C7B64E.jpeg)
 
 **OLKB Preonic**
