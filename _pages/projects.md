@@ -35,6 +35,10 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 
 I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my main WFH keyboard is the Waterfowl.
 
+**Bully**
+Gasket mounted 40% keyboard with Gateron Oil King switches and MT3 Black Speech caps.
+![](/images/bully.png)
+
 **QAZ/Qull**
 
 Cherry MX Black switches, MT3 BoW and WoB caps, and artisan caps from [Asymplex](https://www.asymplex.xyz/). 
