@@ -33,7 +33,12 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ### Keyboards
 
-I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my main WFH keyboard is the Waterfowl.
+I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my main WFH keyboard is the Vault35.
+
+**Vault35**
+
+Black cerakoted aluminum base, Gateron Black switches, and MT3 Operator caps.
+![](/images/vault35.png)
 
 **Bully**
 
