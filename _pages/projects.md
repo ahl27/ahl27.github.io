@@ -47,7 +47,7 @@ Gasket mounted 40% keyboard with black cerakoted base, Gateron Oil King switches
 
 **QAZ/Qull**
 
-Cherry MX Black switches, MT3 BoW and WoB caps, and artisan caps from [Asymplex](https://www.asymplex.xyz/). 
+Green anodized frame, Cherry MX Black switches, MT3 BoW and WoB caps, and artisan caps from [Asymplex](https://www.asymplex.xyz/). 
 ![](/images/qazboard.png)
 
 **Waterfowl**
@@ -63,7 +63,7 @@ Cherry MX Silent Black switches with o-rings, pictured with DSA caps but current
 
 **OLKB Preonic**
 
-Cherry silent red switches, XDA caps.
+Frosted acrylic base, Cherry silent red switches, XDA caps.
 ![](/images/preonic.png)
 
 **Big Dill Extended v2**
