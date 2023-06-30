@@ -42,7 +42,7 @@ Black cerakoted aluminum base, Gateron Black switches, and MT3 Operator caps.
 
 **Bully**
 
-Gasket mounted 40% keyboard with Gateron Oil King switches and MT3 Black Speech caps.
+Gasket mounted 40% keyboard with black cerakoted base, Gateron Oil King switches, and MT3 Black Speech caps.
 ![](/images/bully.png)
 
 **QAZ/Qull**
