@@ -33,7 +33,12 @@ I'm a big fan of esoteric languages, and one that really caught my eye was [Whit
 ------
 ### Keyboards
 
-I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My current work keyboard is the Helidox Corne, and my main WFH keyboard is the Vault35.
+I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My daily drivers are both Vault35s--rainbow for work, and black for at home.
+
+**RainbowVault**
+
+Vault35 with a custom rainbow cerakote by Jake at the P3DStore. Lucy Silent switches and DSA weirdo milkshake caps--definitely my favorite of the boards I own.
+![](/images/rainbow_vault35.png)
 
 **Vault35**
 
