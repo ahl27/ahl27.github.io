@@ -6,7 +6,7 @@ author_profile: true
 
 Here you'll find a compilation of tutorials I've put together, either for internal presentations with my lab or for conference presentations.
 
-## [`froth`: Forth Programming in R](https://www.ahl27.com/froth)
+## [Forth Programming in R](https://www.ahl27.com/froth)
 
 Forth is one of my favorite programming languages. It's simultaneously powerful, elegant, low-level, and incorporates a relatively unique structure. `froth` is an R package I wrote to provide R users with a Forth environment to code in. In addition to supporting most Forth code, `froth` interfaces directly with R, allowing users to easily leverage stack-oriented algorithms directly from R. This tutorial parallels the fantastic [*Starting Forth*](https://www.forth.com/starting-forth/) textbook to introduce users to programming with `froth`-style Forth.
 
