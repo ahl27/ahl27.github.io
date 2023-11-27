@@ -9,7 +9,7 @@ tags:
 
 If you've been following my blog posts, you know that I previously [refactored R's `dendrapply` function](https://www.ahl27.com/posts/2023/02/dendrapply/). After some initial feedback from R-devel, I was encouraged to apply for the [R Project Sprint](https://contributor.r-project.org/r-project-sprint-2023/) at the University of Warwick in the UK.
 
-![](/images/r-project-2023.png)
+![](/images/blog_images/r-project-2023.png)
 
 What an incredible experience! I had the opportunity to meet many members of R Core, and got to show my code to people much smarter than me. Most notably, I had the chance to show my `dendrapply` implementation to the original author of the function, Martin Maechler. I've updated my code significantly since then, so I thought it would be a good idea to walk through how people can contribute to R. If you're just interested in the current state of `dendrapply`, you can check it out on [Bugzilla](https://bugs.r-project.org/show_bug.cgi?id=18480).
 
