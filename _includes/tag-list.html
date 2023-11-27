@@ -25,4 +25,13 @@
     {% endfor %}
     </span>
   </p>
+  {% for tag in page.tags %}
+  {% if tag == 'R' %}
+  <p>
+    <strong>
+      See more like this at <a href="https://www.r-bloggers.com">R-bloggers.com</a>!
+    </strong>
+  </p>
+  {% endif %}
+  {% endfor %}
 {% endif %}
