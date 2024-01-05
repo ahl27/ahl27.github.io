@@ -278,8 +278,8 @@ end module fmergemod
 Wrapping subroutines in modules is generally encouraged, so that's what we've done here.
 A couple things to note:
 
-1. We have to use C-compatible types, which we do with the `iso_c_binding` intrinsic.
-2. We have to make sure the function we'll call from C is marked as `public`
+1. We have to use C-compatible types, which we do with the `iso_c_binding` intrinsic. Integer variables are marked with `integer(c_int)` (other C types are supported in ways you'd expect, e.g., `c_double`).
+2. We have to make sure the function we'll call from C is marked as `public`.
 3. We specify that C-callable functions are bound to C using `bind(C, name="xyz")`. This makes the function available to C and callable as `xyz()`.
 
 Now we have to call it from C. This code is much shorter:
@@ -308,10 +308,10 @@ void better_fmerge(int *vec, int *n){
 
 I've included both an example of using the `.Call` syntax (`run_fmerge`) and the `.C` syntax (`better_fmerge`).
 `.C` is a better approach for this specific example, but using `.Call` is much more common. Note that we've
-protyped the Fortran function using `extern void fmerge(...)`. The function itself is defined within Fortran.
-For this reason, we have to compile them together. Let's assume they're called `fmerge.f90` and `fmerge.c`,
-then we make our shared library with `R CMD SHLIB fmerge.f90 fmerge.c -o fmerge.so`. Once we've done that,
-calling it from R is the same as the C example:
+protyped the Fortran function using `extern void fmerge(...)`, and made sure that all the arguments to our
+Fortran function are pointers. The function itself is defined within Fortran, so we have to compile them
+together. Let's assume they're called `fmerge.f90` and `fmerge.c`, then we make our shared library with
+`R CMD SHLIB fmerge.f90 fmerge.c -o fmerge.so`. Once we've done that, calling it from R is the same as the C example:
 
 {% highlight R %}
 # first, load the shared object file
@@ -325,7 +325,8 @@ cfortran_merge <- function(){
 ## How do they compare?
 
 The real question is, how do they compare? We have five total functions: two in R, one in C, and
-two in Fortran. Let's benchmark them with the `microbenchmark` package:
+two in Fortran. Let's benchmark them with the `microbenchmark` package (truncating results to just
+the median and mean):
 
 {% highlight R %}
 microbenchmark::microbenchmark(
@@ -338,17 +339,16 @@ microbenchmark::microbenchmark(
 
 # Benchmark:
 # Unit: microseconds
-#              expr      min        lq       mean    median        uq      max
-#   fortran_quick()   95.079  103.2175  192.83202  107.3585  117.1985 8249.487
-#  cfortran_merge()   81.918   85.0135   94.31681   87.6375   91.2045  681.830
-#         c_quick()    9.635   11.9925   20.36306   13.4685   15.9900  589.047
-#          r_base()   16.482   22.8165   37.37314   26.6090   33.5380  639.846
-#         r_quick() 1111.387 1128.9555 1318.25906 1146.4215 1235.3710 4476.626
+#          function       mean    median
+#   fortran_quick()  192.83202  107.3585
+#  cfortran_merge()   94.31681   87.6375
+#         c_quick()   20.36306   13.4685
+#          r_base()   37.37314   26.6090
+#         r_quick() 1318.25906 1146.4215
 {% endhighlight %}
 
 Now, these aren't all the same algorithm, but they are relatively comparable in
-algorthmic complexity. Let's break down the results, focusing on the median runtimes
-(fourth column of numbers).
+algorthmic complexity. Let's break down the results, focusing on the median runtimes.
 
 First, `c_quick` and `r_base` are almost identical. As mentioned before, R's `sort()`
 function is basically just C anyway, so it's not surprising that these are about the
@@ -365,4 +365,8 @@ and can optimize your code more, you can probably approach C performance. I won'
 pretend that these are heavily optimized implementations, but they're good enough
 to get rough estimates of relative performances.
 
-Happy Coding!
+I feel like people tend to stick too much to the languages they're familiar with.
+Having a diverse set of tools in your toolbox gives you more options to attack problems with.
+Have proficiency in Fortran, C, and R together gives you the ability to maximize
+runtime without sacrificing too much readibility. Give Fortran a try, you may find that it's
+easier than it seems. Happy Coding!
