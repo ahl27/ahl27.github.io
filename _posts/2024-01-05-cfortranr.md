@@ -1,7 +1,7 @@
 ---
 title: "Fortran, C, and R"
 date: 2024-01-05
-permalink: /posts/2023/11/fortrancr/
+permalink: /posts/2024/01/fortrancr/
 tags:
   - blog posts
   - R
