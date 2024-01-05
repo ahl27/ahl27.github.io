@@ -340,22 +340,26 @@ microbenchmark::microbenchmark(
 # Benchmark:
 # Unit: microseconds
 #          function       mean    median
-#   fortran_quick()  192.83202  107.3585
-#  cfortran_merge()   94.31681   87.6375
-#         c_quick()   20.36306   13.4685
-#          r_base()   37.37314   26.6090
-#         r_quick() 1318.25906 1146.4215
+#   fortran_quick()  137.09334  122.0160
+#  cfortran_merge()  100.52134   93.4595
+#         c_quick()   28.53928   22.6525
+#          r_base()   53.72435   42.8860
+#         r_quick() 1478.26484 1249.0240
 {% endhighlight %}
+
+
 
 Now, these aren't all the same algorithm, but they are relatively comparable in
 algorthmic complexity. Let's break down the results, focusing on the median runtimes.
 
 First, `c_quick` and `r_base` are almost identical. As mentioned before, R's `sort()`
 function is basically just C anyway, so it's not surprising that these are about the
-same. Both flavors of Fortran (`fortran_quick`, called from R, and `cfortran_merge`,
-called from C from R) perform about the same, around 5x slower than the C implementation.
+same. `c_quick` outperforms `r_base` because it does less error checking and R callbacks,
+which save time but make the code less robust.
+Both flavors of Fortran (`fortran_quick`, called from R, and `cfortran_merge`,
+called from C from R) perform about the same, around 3-6x slower than the C implementation.
 Finally, the strict R implementation `r_quick` is by far the slowest, clocking in at roughly
-10x slower than the Fortran methods and about 50x slower than the C implementations.
+10x slower than the Fortran methods and about 30-50x slower than the C implementations.
 
 All this is to say: **C is definitely the fastest, and Fortran is relatively close.**
 If you need ultra-high performant code, C is likely your best option. However,
