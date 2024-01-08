@@ -361,6 +361,11 @@ called from C from R) perform about the same, around 3-6x slower than the C impl
 Finally, the strict R implementation `r_quick` is by far the slowest, clocking in at roughly
 10x slower than the Fortran methods and about 30-50x slower than the C implementations.
 
+After writing this, I found older, much more comprehensive benchmarks that roughly parallel
+these results: good C code executes roughly 3-4x faster than good Fortran code. You can
+see lots of languages benchmarked against each other [here](https://web.archive.org/web/20100722074712/http://shootout.alioth.debian.org/u32q/benchmark.php?test=all&lang=all). Fortran was dropped
+from the benchmark in 2012, so the newest results are only from 2011.
+
 All this is to say: **C is definitely the fastest, and Fortran is relatively close.**
 If you need ultra-high performant code, C is likely your best option. However,
 if you're writing code that's tough to write in C, you can strike a nice balance
