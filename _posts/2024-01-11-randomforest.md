@@ -9,10 +9,7 @@ tags:
   - Fortran
 ---
 
-I've recently had to implement random forests from scratch in R. This is a much longer post than I normally make,
-since I'm going to go through all the details of actually implementing one of these models. By "from scratch", I
-mean a complete Random Forest prediction model, written in R, with no packages aside from those provided in
-a base installation.
+I've recently had to implement random forests from scratch in R. This is a much longer post than I normally make, since I'm going to go through all the details of actually implementing one of these models. By "from scratch", I mean a complete Random Forest prediction model, written in R, with no packages aside from those provided in a base installation.
 
 There are a bunch of steps involved, but before that, I'm going to address the most obvious question people will
 ask: why? There already exists the `randomForest` package for R that does a great job at implementing Random Forests,
