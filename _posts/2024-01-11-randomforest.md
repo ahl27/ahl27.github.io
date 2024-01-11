@@ -316,13 +316,13 @@ Now, let's say that we pick some split point that divides our dataset into two g
 The left side has all the elements from classes `A`, and the right has all from `B,C`. The Gini Impurity of the right and
 left are then:
 ```
-Gini(right):
+Gini(left):
     1 - ((4/4)^2)
   = 1 - (1^2)
   = 1 - 1
   = 0
 
-Gini(left):
+Gini(right):
     1 - ((2/5)^2 + (3/5)^2)
   = 1 - (4/25 + 9/25)
   = 1 - 13/25
@@ -343,13 +343,15 @@ Gini Gain:
 
 So our Gini Gain is 143/405, which is about 0.353. By maximizing the Gini Gain, we'll consistently pick split points that reduce the
 Gini Impurity as much as possible. This is because the maximizing the Gini Gain corresponds to picking split points wherein the
-Gini Impurity of the child nodes is smallest relative to the Gini Impurity of the parent. To illustrate this, if we had picked a
+Gini Impurity of the child nodes is smallest relative to the Gini Impurity of the parent.
+
+To illustrate this, if we had picked a
 partition that split our nodes into `{A, A, B, C, C | A, A, B, C}`, the Gini Impurity of the child nodes would be 9/25 for the left
 and 6/16 for the right. Our Gini Gain would be `52/81 - [(5/9)(9/25) + (4/9)(6/16)] = 223/810 = 111.5/810`, which is about 0.275.
 This is a worse score than our previous example, and it corresponds to a case where the elements of the set are much less well
 separated.
 
-Let's get back to coding. The first step was making a function to calculate the optimal way to split for a given variable. I chose
+Let's get back to coding. The first step was making a function to calculate the Gini Impurity of a vector of classes. I chose
 Fortran for this, since matrix operations are a little easier to write in Fortran.
 
 ```fortran
@@ -378,7 +380,6 @@ pure subroutine gini_imp(classes, l, nclass, o_v)
       class_counts(i) = 0.0+count(classes==i) ! cast to double for later
     end do
 
-    ! divide to get probabilities
     total = sum(class_counts)
 
     ! gini impurity is 1 - (squared probabilities)
@@ -456,6 +457,7 @@ void split_decision_node_classif(DTN *node, double *data, int *class_response,
   int choice, tmp;
 
   // shuffle the columns, use R's random number generator
+  // this is a Fisher-Yates shuffle, for anyone interested
   GetRNGstate();
   for(int i=ncols-1; i>0; i--){
     choice = floor(unif_rand()*i);
@@ -483,11 +485,10 @@ void split_decision_node_classif(DTN *node, double *data, int *class_response,
   node->index = cols[choice];
   node->gini_gain = curmax;
 
-
+  // cleanup
   free(results);
   free(gini_gain);
   free(cols);
-
   return;
 }
 ```
