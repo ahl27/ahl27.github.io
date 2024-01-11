@@ -27,13 +27,21 @@ that isn't always feasible, but in this case it is.
 The second reason is a lot simpler: it's a great learning experience, and a great excuse to finally use the Fortran
 skills I've been practicing over winter break.
 
+Note to anyone planning to seriously follow this writeup: I use R, Fortran, and C together for my implementation.
+If you're unfamiliar with R internals or the various ways to interface between R and Fortran/C, you may have trouble
+following some sections. I recommend looking at what is essentially the bible of R programming,
+[Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html), for a comprehensive description on things
+like `.Call` syntax and Fortran interfaces. If you're interested in a more comprehensive description of Random Forests,
+check out [the original publication by Leo Breiman](https://link.springer.com/article/10.1023/A:1010933404324).
+
 **This will be a work in progress until I finish my implementation**
 
-You can check out the current codebase at [https://github.com/ahl27/machineRy](https://github.com/ahl27/machineRy)
+You can check out the current codebase at [https://github.com/ahl27/machineRy](https://github.com/ahl27/machineRy).
+If you have suggestions for improvements, feel free to contact me or open an issue on GitHub.
 
 ## Step 0: Planning
 
-This is a big project, and I'm not looking for a half-assed solution. For things like this, the best first step is
+This is a big project, and I'm looking for a good, robust implementation. For things like this, the best first step is
 to plan out what you're going to implement based on your priorities. I usually start by defining my priorities
 and the steps involved, and figure out which languages I'm going to use for what based on those two things together.
 

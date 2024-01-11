@@ -9,8 +9,9 @@ Here you'll find a compilation of tutorials I've put together, either for intern
 ## [Random Forests from Scratch](https://www.ahl27.com//posts/2024/01/randomforest/)
 
 I recently had to write an entire random forest model from scratch in R. I figured it may be helpful for people to see my
-thought processes and what a large project like this looks like, so I documented it in a very long blog post. *Note: currently
-still a work in progress, will be completed as soon as I can.*
+thought processes and what a large project like this looks like, so I documented it in a very long blog post.
+
+*Note: currently still a work in progress, will be completed as soon as I can.*
 
 ## [Forth Programming in R](https://www.ahl27.com/froth)
 
