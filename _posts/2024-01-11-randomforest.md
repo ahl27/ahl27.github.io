@@ -197,13 +197,15 @@ DTN *bfs_q2tree(int *indices, double *thresholds, double *gini, int length){
 
 Then, we just need an R interface:
 ```c
-SEXP R_get_treeptr(SEXP VolatilePtr, SEXP INDICES, SEXP THRESHOLDS, SEXP GINIS, SEXP LEN){
+SEXP R_get_treeptr(SEXP VolatilePtr, SEXP INDICES, SEXP THRESHOLDS, SEXP GINIS){
   // if tree exists, just return the external pointer
   // note that it seems R_NilValue can be treated as an external pointer address for whatever reason
   if(VolatilePtr != R_NilValue && R_ExternalPtrAddr(VolatilePtr)) return(VolatilePtr);
 
   // otherwise, create the tree
-  DTN *tree = bfs_q2tree(INTEGER(INDICES), REAL(THRESHOLDS), REAL(GINIS), INTEGER(LEN)[0]);
+  DTN *tree = bfs_q2tree(INTEGER(INDICES), REAL(THRESHOLDS), REAL(GINIS), LENGTH(INDICES));
+  // using LENGTH because it makes calling the function a lot easier --
+  // could be optimized slightly by calculating this on the R end
 
   int madePtr = 0;
   if(VolatilePtr == R_NilValue){
@@ -212,7 +214,7 @@ SEXP R_get_treeptr(SEXP VolatilePtr, SEXP INDICES, SEXP THRESHOLDS, SEXP GINIS, 
     madePtr = 1;
   } else {
     // else just set the address of the pointer to the tree we just made
-    R_ExternalPtrAddr(VolatilePtr) = tree;
+    R_SetExternalPtrAddr(VolatilePtr, tree);
   }
   R_RegisterCFinalizerEx(VolatilePtr, (R_CFinalizer_t) R_TreeFinalizer, TRUE);
   if(madePtr) UNPROTECT(1);
@@ -263,6 +265,235 @@ SEXP test_bfs_q2tree(SEXP INDICES, SEXP THRESHOLDS, SEXP GINI, SEXP LEN){
   return R_NilValue
 }
 ```
+
+## Step 2: Making Decision Tree Nodes
+
+At this point, I have a data structure and a way to read it to/from R. It also can be saved across multiple R sessions.
+The next step is creating one of the building blocks of decision trees: the nodes it contains.
+
+There are many ways to build decision trees, but the most well-known is the CART (Classification and Regression Trees)
+algorithm. I first tried to figure out what they're doing in the `randomForest` package, but their code is...extremely
+difficult to understand. In absence of that, I instead just started implementing based on what it should theoretically
+look like.
+
+The CART algorithm for each node of a classification tree in a random forest is fairly straightforward:
+
+1. Randomly choose `n` variables to evaluate
+2. For each variable, determine the split point that maximizes the Gini Gain
+3. Split the data on the variable/threshold combination that maximizes Gini Gain
+
+You can see that a lot of this revolves around the "Gini Gain", but what exactly is that? Gini Gain is derived from the
+[Gini Impurity](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity), which measures "how often a randomly
+chosen element of a set would be incorrectly labeled if it were labeled randomly and independently according to the
+distribution of labels in the set" (Wikipedia, see previous link). The mathematics work out very cleanly, so the expression
+for Gini Impurity is just:
+
+```
+1 - sum_i(p_i^2)
+```
+
+Here `p_i^2` is the probability of each class in the training set, and `sum_i` is the sum over all categories. Essentially,
+you take one minus the sum of squared probabilities for each class. The best possible value is 0, when all elements are in the
+same class.
+
+Gini Gain is then just the Gini Impurity of the total dataset minus the weighted Gini Impurity of each branch after the split.
+To illustrate this, let's walk through an example. Suppose I have a set of three classes, `{A,B,C}`, and my starting dataset is:
+```
+{A, A, A, A, B, B, C, C, C}
+```
+
+The gini impurity is then one minus the squared sum of probabilities for each class. The probabilities for `A,B,C` are
+`4/9, 2/9, 3/9` (respectively), so the Gini impurity is:
+```
+  1 - ((4/9)^2 + (2/9)^2 + (3/9)^2)
+= 1 - (16/81 + 4/81 + 9/81)
+= 1 - 29/81
+= 52/81
+```
+That's about equal to 0.642.
+
+Now, let's say that we pick some split point that divides our dataset into two groups: `{A, A, A, A, | B, B, C, C, C}`.
+The left side has all the elements from classes `A`, and the right has all from `B,C`. The Gini Impurity of the right and
+left are then:
+```
+Gini(right):
+    1 - ((4/4)^2)
+  = 1 - (1^2)
+  = 1 - 1
+  = 0
+
+Gini(left):
+    1 - ((2/5)^2 + (3/5)^2)
+  = 1 - (4/25 + 9/25)
+  = 1 - 13/25
+  = 12/25
+```
+
+Now the Gini Gain of this split is the Gini Impurity at the beginning (0.642) minus the sum of *weighted* Gini Impurities
+of the left and right nodes. This weighting is done by the number of elements in each node. In this case, since we split
+our set of nine elements into two sets of size four and five (resp.), the final calculation is:
+```
+Gini Gain:
+    GiniImpurity(parent) - (weightedGini(left) + weightedGini(right))
+  = 52/81 - ((4/9)(0) + (5/9)(13/25))
+  = 52/81 - (0 + 65/225)
+  = 52/81 - 13/45
+  = 143/405
+```
+
+So our Gini Gain is 143/405, which is about 0.353. By maximizing the Gini Gain, we'll consistently pick split points that reduce the
+Gini Impurity as much as possible. This is because the maximizing the Gini Gain corresponds to picking split points wherein the
+Gini Impurity of the child nodes is smallest relative to the Gini Impurity of the parent. To illustrate this, if we had picked a
+partition that split our nodes into `{A, A, B, C, C | A, A, B, C}`, the Gini Impurity of the child nodes would be 9/25 for the left
+and 6/16 for the right. Our Gini Gain would be `52/81 - [(5/9)(9/25) + (4/9)(6/16)] = 223/810 = 111.5/810`, which is about 0.275.
+This is a worse score than our previous example, and it corresponds to a case where the elements of the set are much less well
+separated.
+
+Let's get back to coding. The first step was making a function to calculate the optimal way to split for a given variable. I chose
+Fortran for this, since matrix operations are a little easier to write in Fortran.
+
+```fortran
+pure subroutine gini_imp(classes, l, nclass, o_v)
+    ! calculate gini impurity of a given vector of classes
+    ! variable definitions:
+    ! classes: vector of classes (integer, 1:n)
+    !       l: length of `classes`
+    !  nclass: number of unique classes
+    !     o_v: output variable
+    use, intrinsic :: iso_c_binding, only: c_int, c_double
+    implicit none
+    integer(c_int), intent(in) :: l, nclass
+    integer(c_int), intent(in) :: classes(l)
+    real(c_double), intent(out) :: o_v
+
+    real(c_double) :: class_counts(nclass), total
+    integer(c_int) :: i
+    if(l == 0) then
+      o_v = 1.0
+      return
+    end if
+
+    ! tabulate number of classes
+    do i=1, nclass
+      class_counts(i) = 0.0+count(classes==i) ! cast to double for later
+    end do
+
+    ! divide to get probabilities
+    total = sum(class_counts)
+
+    ! gini impurity is 1 - (squared probabilities)
+    o_v = 1.0-sum((class_counts / total)**2)
+  end subroutine gini_imp
+```
+
+This gives us a way to calculate the Gini Impurity given a single vector. Now, we just have to apply it to a
+set of observations to find the optimal split point for a given variable:
+
+```fortran
+pure subroutine find_gini_split(v, response, l, nclass, o_v, o_gini_score) bind(C, name="find_gini_split_")
+    ! Variable declarations:
+    !            v: vector of values to split on (numeric)
+    !     response: classes of each entry
+    !            l: length of v and responses
+    !       nclass: number of unique classes
+    !          o_v: (output) value to split on
+    ! o_gini_score: (output) Gini Gain of split
+    use, intrinsic :: iso_c_binding, only: c_int, c_double
+    implicit none
+
+    integer(c_int), intent(in) :: l, nclass
+    integer(c_int), intent(in) :: response(l)
+    real(c_double), intent(in) :: v(l)
+    real(c_double), intent(out) :: o_gini_score, o_v
+
+    integer(c_int) :: i, mloc
+    real(c_double) :: total_gini, gains(l)
+    logical :: tmpmask(l)
+
+    ! calculate the base gini impurity
+    call gini_imp(response, l, nclass, total_gini)
+    gains(:) = total_gini
+
+    ! Calculate the gini gain for every possible split point
+    do concurrent(i=1:l)
+      tmpmask(:) = v <= v(i)
+      if(count(tmpmask) == l) then
+        gains(i) = -1.0
+      else
+        call gini_imp(pack(response, tmpmask), count(tmpmask), nclass, total_gini)
+        gains(i) = gains(i) - (total_gini * count(tmpmask)) / l
+        tmpmask(:) = .not. tmpmask
+        call gini_imp(pack(response, tmpmask), count(tmpmask), nclass, total_gini)
+        gains(i) = gains(i) - (total_gini * count(tmpmask)) / l
+      end if
+    end do
+
+    ! find the best split and the gini gain of that split
+    gains = gains / l
+    mloc = maxloc(gains, dim=1)
+    o_v = v(mloc)
+    o_gini_score = gains(mloc)
+  end subroutine find_gini_split
+```
+
+This gives us a way to calculate the best split point for a given variable. We could probably optimize this slightly,
+but I'll come back to that later. The final step is just determining what variables to pass to Fortran from C.
+
+```c
+void split_decision_node_classif(DTN *node, double *data, int *class_response,
+                                  int nrows, int ncols, int nclass, int num_to_check){
+  // data should always be a numeric
+  // response should be an int ranging from 1:n
+  // nclass, num_to_check are constant throughout execution of the program
+
+  // data will be a matrix stored by column (first nrows entries are col1, second are col2, etc.)
+  // we'll just assume that all the preprocessing is done in R, no need to fiddle with that here
+  // processing the SEXPs will be done separately so we can repeatedly call this internally
+
+  // setting up a random sample of ints
+  int *cols = malloc(sizeof(int) * ncols);
+  for(int i=0; i<ncols; i++) cols[i] = i;
+  int choice, tmp;
+
+  // shuffle the columns, use R's random number generator
+  GetRNGstate();
+  for(int i=ncols-1; i>0; i--){
+    choice = floor(unif_rand()*i);
+    tmp = cols[choice];
+    cols[choice] = cols[i];
+    cols[i] = tmp;
+  }
+  PutRNGstate();
+
+  double *results = malloc(sizeof(double) * num_to_check);
+  double *gini_gain = malloc(sizeof(double) * num_to_check);
+  double curmax = -0.5;
+  choice = -1;
+  for(int i=0; i<num_to_check; i++){
+    // call Fortran to find the best split point
+    F77_CALL(find_gini_split)(&data[nrows*cols[i]], class_response, &nrows, &nclass, &results[i], &gini_gain[i]);
+    if(gini_gain[i] > curmax){
+      choice = i;
+      curmax = gini_gain[i];
+    }
+  }
+
+  // assign the threshold, index, and gini gain to the node
+  node->threshold = results[choice];
+  node->index = cols[choice];
+  node->gini_gain = curmax;
+
+
+  free(results);
+  free(gini_gain);
+  free(cols);
+
+  return;
+}
+```
+
+And now we have a way to determine a split point in the nodes. Next up is doing it a bunch of times to generate a full
+decision tree.
 
 ## Conclusion
 
