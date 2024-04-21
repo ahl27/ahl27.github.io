@@ -231,3 +231,15 @@ body {
         font-size: 13px;
     }
 }
+
+@font-face {
+    font-family: 'koliko Regular';
+    src: url('koliko-Regular.eot');
+    src: url('koliko-Regular.eot?#iefix') format('embedded-opentype'),
+         url('koliko-Regular.woff') format('woff'),
+         url('koliko-Regular.ttf') format('truetype'),
+         url('koliko-Regular.svg') format('svg');
+
+    font-weight: normal;
+    font-style: normal;
+}
