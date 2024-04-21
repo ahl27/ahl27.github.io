@@ -108,84 +108,84 @@ body {
   background-image: url("/images/hexagon_images/home_before.svg");
 }
 #homebutton::after {
-  background-image: url("/images/hexagon_images/home_after.png");  
+  background-image: url("/images/hexagon_images/home_after.png");
 }
 
 #blogbutton::before{
   background-image: url("/images/hexagon_images/blog_before.svg");
 }
 #blogbutton::after {
-  background-image: url("/images/hexagon_images/blog_after.svg");  
+  background-image: url("/images/hexagon_images/blog_after.png");
 }
 
 #mastodonbutton::before{
   background-image: url("/images/hexagon_images/mastodon_before.svg");
 }
 #mastodonbutton::after{
-  background-image: url("/images/hexagon_images/mastodon_after.svg");  
+  background-image: url("/images/hexagon_images/mastodon_after.png");
 }
 
 #githubbutton::before{
   background-image: url("/images/hexagon_images/github_before.svg");
 }
 #githubbutton::after{
-  background-image: url("/images/hexagon_images/github_after.svg");  
+  background-image: url("/images/hexagon_images/github_after.png");
 }
 
 #emailbutton::before{
   background-image: url("/images/hexagon_images/email_before.svg");
 }
 #emailbutton::after {
-  background-image: url("/images/hexagon_images/email_after.svg");  
+  background-image: url("/images/hexagon_images/email_after.png");
 }
 
 #cvbutton::before{
   background-image: url("/images/hexagon_images/cv_before.svg");
 }
 #cvbutton::after {
-  background-image: url("/images/hexagon_images/cv_after.svg");  
+  background-image: url("/images/hexagon_images/cv_after.png");
 }
 
 #talksbutton::before{
   background-image: url("/images/hexagon_images/talks_before.svg");
 }
 #talksbutton::after {
-  background-image: url("/images/hexagon_images/talks_after.svg");  
+  background-image: url("/images/hexagon_images/talks_after.png");
 }
 
 #tutorialbutton::before{
   background-image: url("/images/hexagon_images/tutorials_before.svg");
 }
 #tutorialbutton::after {
-  background-image: url("/images/hexagon_images/tutorials_after.svg");  
+  background-image: url("/images/hexagon_images/tutorials_after.png");
 }
 
 #linkedinbutton::before{
   background-image: url("/images/hexagon_images/linkedin_before.svg");
 }
 #linkedinbutton::after{
-  background-image: url("/images/hexagon_images/linkedin_after.svg");  
+  background-image: url("/images/hexagon_images/linkedin_after.png");
 }
 
 #projectsbutton::before{
   background-image: url("/images/hexagon_images/projects_before.svg");
 }
 #projectsbutton::after {
-  background-image: url("/images/hexagon_images/projects_after.svg");  
+  background-image: url("/images/hexagon_images/projects_after.png");
 }
 
 #otherbutton::before{
   background-image: url("/images/hexagon_images/other_before.svg");
 }
 #otherbutton::after {
-  background-image: url("/images/hexagon_images/other_after.svg");  
+  background-image: url("/images/hexagon_images/other_after.png");
 }
 
 #musicbutton::before{
   background-image: url("/images/hexagon_images/music_before.svg");
 }
 #musicbutton::after {
-  background-image: url("/images/hexagon_images/music_after.svg");
+  background-image: url("/images/hexagon_images/music_after.png");
 }
 
 /*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
