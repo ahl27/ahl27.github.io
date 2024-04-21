@@ -6,25 +6,13 @@ body {
     background: #ffffff;
 }
 
-@font-face {
-    font-family: 'koliko Regular';
-    src: url('/assets/fonts/koliko-Regular.eot');
-    src: url('/assets/fonts/koliko-Regular.eot?#iefix') format('embedded-opentype'),
-         url('/assets/fonts/koliko-Regular.woff') format('woff'),
-         url('/assets/fonts/koliko-Regular.ttf') format('truetype'),
-         url('/assets/fonts/koliko-Regular.svg') format('svg');
-
-    font-weight: normal;
-    font-style: normal;
-}
-
 #hexGrid {
   display: flex;
   flex-wrap: wrap;
   width: 60%;
   margin: 1% auto;
   overflow: hidden;
-  font-family: 'koliko Regular', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 50px;
   list-style-type: none;
   position: relative;
@@ -35,7 +23,6 @@ body {
   position: relative;
   visibility:hidden;
   outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  font-family: 'koliko Regular';
 }
 .hex::after{
   content:'';
