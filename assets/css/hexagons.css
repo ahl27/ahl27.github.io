@@ -235,11 +235,11 @@ body {
 
 @font-face {
     font-family: 'koliko Regular';
-    src: url('koliko-Regular.eot');
-    src: url('koliko-Regular.eot?#iefix') format('embedded-opentype'),
-         url('koliko-Regular.woff') format('woff'),
-         url('koliko-Regular.ttf') format('truetype'),
-         url('koliko-Regular.svg') format('svg');
+    src: url('../fonts/koliko-Regular.eot');
+    src: url('../fonts/koliko-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/koliko-Regular.woff') format('woff'),
+         url('../fonts/koliko-Regular.ttf') format('truetype'),
+         url('../fonts/koliko-Regular.svg') format('svg');
 
     font-weight: normal;
     font-style: normal;
