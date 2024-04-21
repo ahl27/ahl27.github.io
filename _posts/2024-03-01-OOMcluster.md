@@ -7,6 +7,8 @@ tags:
   - C
 ---
 
+**Update:** This project has progressed pretty far from this inital sketch. This post describes my first pass at this problem--the final version is quite a bit different. I'll write another post soon to incorporate those thoughts (will be linked here when done). Original post is below.
+
 My next research project involves determining groups of genes that derive from a common ancestor (usually called 'orthologs'). To do this, we often take a bunch of gene sequences, quantify their pairwise similarity in some fashion, and then cluster them into groups of genes that are more similar to each other than to other clusters. I'm oversimplifying a lot here to keep this brief, so keep in mind that the actual calculations of those "pairwise distances" can involve a bunch of stuff.
 
 However, the main part of the problem I'm looking at is the next step of the equation. Given that we have a ton of things with pairwise similarities among them, how can we best cluster them? If you're a mathematician or a computer scientist, the phrases "A ton of things" and "pairwise similarities" should immediately call to mind a graph structure. Graphs are everywhere, and this is no exception. Fortunately for me, graph clustering methods are an extremely well studied problem. The typical name for these methods is "community detection algorithms", since they try to identify communities in a network. Think of something like a social network, in which the clusters/communities we identify are communities of people that interact with each other.
