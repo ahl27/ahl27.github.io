@@ -106,14 +106,14 @@ body {
 }
 
 #mastodonbutton::before{
-  background-image: url("/images/hexagon_images/mastodon_before.svg");
+  background-image: url("/images/hexagon_images/mastodon_before.png");
 }
 #mastodonbutton::after{
   background-image: url("/images/hexagon_images/mastodon_after.png");
 }
 
 #githubbutton::before{
-  background-image: url("/images/hexagon_images/github_before.svg");
+  background-image: url("/images/hexagon_images/github_before.png");
 }
 #githubbutton::after{
   background-image: url("/images/hexagon_images/github_after.png");
@@ -148,7 +148,7 @@ body {
 }
 
 #linkedinbutton::before{
-  background-image: url("/images/hexagon_images/linkedin_before.svg");
+  background-image: url("/images/hexagon_images/linkedin_before.png");
 }
 #linkedinbutton::after{
   background-image: url("/images/hexagon_images/linkedin_after.png");
