@@ -92,14 +92,14 @@ body {
 }
 
 #homebutton::before{
-  background-image: url("/images/hexagon_images/home_before.svg");
+  background-image: url("/images/hexagon_images/home_before.png");
 }
 #homebutton::after {
   background-image: url("/images/hexagon_images/home_after.png");
 }
 
 #blogbutton::before{
-  background-image: url("/images/hexagon_images/blog_before.svg");
+  background-image: url("/images/hexagon_images/blog_before.png");
 }
 #blogbutton::after {
   background-image: url("/images/hexagon_images/blog_after.png");
@@ -120,28 +120,28 @@ body {
 }
 
 #emailbutton::before{
-  background-image: url("/images/hexagon_images/email_before.svg");
+  background-image: url("/images/hexagon_images/email_before.png");
 }
 #emailbutton::after {
   background-image: url("/images/hexagon_images/email_after.png");
 }
 
 #cvbutton::before{
-  background-image: url("/images/hexagon_images/cv_before.svg");
+  background-image: url("/images/hexagon_images/cv_before.png");
 }
 #cvbutton::after {
   background-image: url("/images/hexagon_images/cv_after.png");
 }
 
 #talksbutton::before{
-  background-image: url("/images/hexagon_images/talks_before.svg");
+  background-image: url("/images/hexagon_images/talks_before.png");
 }
 #talksbutton::after {
   background-image: url("/images/hexagon_images/talks_after.png");
 }
 
 #tutorialbutton::before{
-  background-image: url("/images/hexagon_images/tutorials_before.svg");
+  background-image: url("/images/hexagon_images/tutorials_before.png");
 }
 #tutorialbutton::after {
   background-image: url("/images/hexagon_images/tutorials_after.png");
@@ -155,21 +155,21 @@ body {
 }
 
 #projectsbutton::before{
-  background-image: url("/images/hexagon_images/projects_before.svg");
+  background-image: url("/images/hexagon_images/projects_before.png");
 }
 #projectsbutton::after {
   background-image: url("/images/hexagon_images/projects_after.png");
 }
 
 #otherbutton::before{
-  background-image: url("/images/hexagon_images/other_before.svg");
+  background-image: url("/images/hexagon_images/other_before.png");
 }
 #otherbutton::after {
   background-image: url("/images/hexagon_images/other_after.png");
 }
 
 #musicbutton::before{
-  background-image: url("/images/hexagon_images/music_before.svg");
+  background-image: url("/images/hexagon_images/music_before.png");
 }
 #musicbutton::after {
   background-image: url("/images/hexagon_images/music_after.png");
