@@ -1,5 +1,5 @@
 ---
-permalink: /research
+permalink: /research/
 title: "Aidan Lakshman"
 excerpt: "Research"
 author_profile: true
@@ -22,7 +22,7 @@ This algorithm is called EvoWeaver, and is distributed in the SynExtend package 
 
 Comparative genomics relies on the identification of orthologs, genes deriving from a common ancestor. Since orthologs once were the same gene, we can hypothesize that they are likely to maintain a somewhat equivalent function in the present day despite occuring in different organisms. This allows for transfer of functional annotations and phylogenetic inference. Orthology detection typically has three steps: quantification of pairwise similarity between genes, clustering the resulting sequence similarity network to identify orthology groups, and then dealing with paralogous genes. My work seeks to improve on the second step in this process. Few benchmarks exist for the relative performance of network community detection methods applied to sequence similarity networks, and none are capable of keeping pace with the deluge of modern genomics data.
 
-I developed an algorith that leverages disk storage to identify communities on arbitrarily sized networks in linear time with constant space RAM. My algorithm can process networks with billions of nodes in under an hour using only 100MB of RAM. This work is in progress, and will be submitted for publication in October 2024.
+My algorithm, ExoLabel, leverages disk storage to identify communities on arbitrarily sized networks in linear time with constant space RAM. ExoLabel can process networks with billions of nodes in under an hour using only 100MB of RAM, and is available in the SynExtend packcage for R. A manuscript for this work is in progress, and will be submitted for publication in October 2024.
 
 
 ### Aim 3: Scalable Identification of Functional Pathways

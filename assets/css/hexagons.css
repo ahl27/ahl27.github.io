@@ -98,6 +98,13 @@ body {
   background-image: url("/images/hexagon_images/home_after.png");
 }
 
+#researchbutton::before{
+  background-image: url("/images/hexagon_images/research_before.png");
+}
+#researchbutton::after {
+  background-image: url("/images/hexagon_images/research_after.png");
+}
+
 #blogbutton::before{
   background-image: url("/images/hexagon_images/blog_before.png");
 }
