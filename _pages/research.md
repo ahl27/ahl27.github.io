@@ -5,7 +5,7 @@ excerpt: "Research"
 author_profile: true
 ---
 
-This page gives a brief overview of my research and timelines, both doctoral and non-doctoral.
+This page gives a brief overview of my research and timelines.
 
 ## Doctoral Research
 
@@ -29,7 +29,7 @@ My algorithm, ExoLabel, leverages disk storage to identify communities on arbitr
 
 Aim 1 identifies functional associations among pairs of protein-coding genes. This Aim will identify complete functional pathways by clustering the network derived from pairwise functional associations elucidated in Aim 1. In theory, this should serve as a powerful hypothesis-generating tool to guide future wet lab investigations, such as for identifying potential new biosynthetic gene clusters or functional pathways in understudied organisms.
 
-This work has not yet started, but is planned for October 2024 - May 2025.
+I plan to use the results of this Aim alongside my previous research and other efforts in our lab to release a novel database to quantify coevolutionary relationships among gene families across the tree of life. This work has not yet started, but is planned to take place from October 2024 to May 2025.
 
 ## Other Current Work
 
