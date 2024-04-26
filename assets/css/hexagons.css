@@ -193,9 +193,11 @@ body {
   .hex:nth-child(6){ /* first hexagon of even rows */
     margin-left:10%;  /* = width of .hex / 2  to indent even rows */
   }
+  /*
   .hex:nth-child(10){
     margin-left:20%;
   }
+  */
 }
 
 @media (max-width: 1200px) and (min-width:1101px) { /* <- 4-3  hexagons per row */
