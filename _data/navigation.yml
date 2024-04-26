@@ -8,6 +8,8 @@ main:
     
 #  - title: "Portfolio"
 #    url: /portfolio/
+  - title: "Research"
+    url: /research/
   - title: "Tutorials"
     url: /tutorials/
   - title: "Talks"
