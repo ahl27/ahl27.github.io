@@ -6,6 +6,8 @@ author_profile: true
 ---
 ------
 
+This page details my many side projects I've worked on for fun. A description of the research projects I do for my work can be found on the [Research page](https://www.ahl27.com/research/).
+
 ## Software
 
 ### Froth
