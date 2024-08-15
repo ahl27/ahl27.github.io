@@ -23,130 +23,21 @@ There are three things I wanted to accomplish with my workflow:
 
 I ended up writing [my own workflow](https://github.com/ahl27/Biostrings/blob/162de109af15a1b55084cc1e1ed4eda3c4291f41/.github/workflows/test-coverage.yaml). It works for R packages using `testthat` as a testing environment, but could easily be adapted to any other testing setup. The result is printed on the Job Summary page, and renders into something like this:
 
-### Test Results:
+### Main output
 
-Please note that test coverage is **not** an end-all-be-all measure of robustness. Having tests that correctly cover intended use cases and potential errors is significantly more important than maximizing coverage.
+![](/images/blog_images/github_head.png)
 
-```
-Unit Tests: [ FAIL 0 | WARN 0 | SKIP 0 | PASS 1306 ]
-```
+### Expanded table
 
-### Warning/Failing Tests:
+![](/images/blog_images/github_body.png)
 
-| Test File | Test Name | Warnings | Failures |
-| :-----: | :-----: | :-----: | :-----: |
-| test-letterFrequency.R | uniqueLetters works properly | 1 | 0 |
+### Some failing tests
 
-### Negatively Impacted Files
+![](/images/blog_images/github_failhead.png)
 
-The following files have lost coverage:
-| File name | Coverage | Change |
- | :----- | :-----: | :-----: |
-| R/MultipleAlignment.R | 0.00% | -59.0% |
-<details>
-<summary>Additional Details and Impacted Files:</summary>
+### Failing test detail
 
-```diff
-@@              Total Coverage               @@
-===============================================
-
-
-+                Total Coverage  57.83%  +30.3%
-
-
-===============================================
-@@                R/... Files                @@
-===============================================
-+                      chartr.R  77.78%  +77.8%
-+                    coloring.R  94.87%  +94.9%
-    dinucleotideFrequencyTest.R   0.00%   +0.0%
-              findPalindromes.R  40.00%   +0.0%
-+              injectHardMask.R  80.00%  +80.0%
-+                      letter.R  95.00%  +95.0%
-+             letterFrequency.R  39.88%  +22.9%
-+           lowlevel-matching.R  27.14%  +15.2%
-+         MaskedXString-class.R  73.24%  +50.7%
-+                   maskMotif.R  52.63%   +2.6%
-+                 match-utils.R  39.29%  +14.3%
-+             matchLRPatterns.R 100.00% +100.0%
-+                matchPattern.R  97.22%  +86.1%
-+                  matchPDict.R  93.71%  +87.4%
-               matchProbePair.R   0.00%   +0.0%
-                  matchprobes.R   0.00%   +0.0%
-+                    matchPWM.R  39.13%  +39.1%
-+                MIndex-class.R  61.43%  +45.7%
-+                        misc.R  88.89%  +88.9%
-             moved_to_pwalign.R   0.00%   +0.0%
--           MultipleAlignment.R   0.00%  -59.0%
-                   needwunsQS.R   0.00%   +0.0%
-+                  padAndClip.R  87.10%  +87.1%
-+                 PDict-class.R  76.92%  +44.1%
-                pmatchPattern.R   0.00%   +0.0%
-+     QualityScaledXStringSet.R  80.49%  +34.1%
-+                   replaceAt.R  90.62%  +90.6%
-+             replaceLetterAt.R  66.67%  +66.7%
-+           reverseComplement.R  92.86%  +92.9%
-+                     seqtype.R  94.74%  +22.8%
-             SparseList-class.R   0.00%   +0.0%
-+            strsplit-methods.R 100.00%  +90.0%
-+                   toComplex.R  92.31%  +92.3%
-+                   translate.R 100.00% +100.0%
-+              trimLRPatterns.R 100.00% +100.0%
-+                       utils.R 100.00%  +78.6%
-+                       xscat.R  88.24%  +88.2%
-+               XString-class.R  68.28%  +22.8%
-+          XStringCodec-class.R  86.00%  +60.0%
-  XStringPartialMatches-class.R   0.00%   +0.0%
-+        XStringQuality-class.R  67.07%  +40.2%
-+            XStringSet-class.R  65.84%  +18.0%
-+       XStringSet-comparison.R 100.00% +100.0%
-+               XStringSet-io.R  77.98%  +49.5%
-+        XStringSetList-class.R  87.50%  +46.9%
-+          XStringViews-class.R  36.00%  +26.1%
-===============================================
-@@               src/... Files               @@
-===============================================
-                    BAB_class.c  97.06%   +0.0%
-                    BitMatrix.c  15.48%   +0.0%
-             find_palindromes.c  96.77%   +0.0%
-                     gtestsim.c   0.00%   +0.0%
-+                 inject_code.c  90.00%  +90.0%
-+            letter_frequency.c  48.60%  +24.3%
-+           lowlevel_matching.c  62.86%  +53.5%
-+    match_pattern_boyermoore.c  63.82%  +63.8%
-+        match_pattern_indels.c  76.60%  +76.6%
-+       match_pattern_shiftor.c  95.16%  +10.2%
-+               match_pattern.c  95.35%  +71.8%
-+         match_pdict_ACtree2.c  49.59%   +0.9%
-+          match_pdict_Twobit.c  65.79%  +65.8%
-+           match_pdict_utils.c  48.87%   +8.4%
-+                 match_pdict.c  62.00%  +48.0%
-                    match_PWM.c   0.00%   +0.0%
-+             match_reporting.c  71.96%  +37.9%
-                  matchprobes.c   0.00%   +0.0%
-+                MIndex_class.c  13.71%  +13.7%
-                pmatchPattern.c   0.00%   +0.0%
-+        PreprocessedTB_class.c  85.71%   +8.6%
-            R_init_Biostrings.c 100.00%   +0.0%
-+            read_fasta_files.c  80.53%   +4.5%
-+            read_fastq_files.c  84.08%   +2.2%
-+           replace_letter_at.c  60.61%  +60.6%
-+                   replaceAt.c  81.51%  +81.5%
-                 RoSeqs_utils.c 100.00%   +0.0%
-             SparseList_utils.c   0.00%   +0.0%
-                     strutils.c   0.00%   +0.0%
-+                   translate.c  88.07%  +88.1%
-+          unstrsplit_methods.c  97.56%  +97.6%
-+                       utils.c  70.41%  +49.0%
-+                       xscat.c  92.96%  +93.0%
-                XString_class.c  51.58%   +0.0%
-+            XStringSet_class.c  93.42%   +2.6%
-+        XStringSetList_class.c 100.00% +100.0%
-===============================================
-
-```
-
-</details>
+![](/images/blog_images/github_faildetail.png)
 
 
 ## How does it work?
