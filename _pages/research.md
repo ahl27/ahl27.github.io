@@ -22,14 +22,14 @@ This algorithm is called EvoWeaver, and is distributed in the SynExtend package 
 
 Comparative genomics relies on the identification of orthologs, genes deriving from a common ancestor. Since orthologs once were the same gene, we can hypothesize that they are likely to maintain a somewhat equivalent function in the present day despite occuring in different organisms. This allows for transfer of functional annotations and phylogenetic inference. Orthology detection typically has three steps: quantification of pairwise similarity between genes, clustering the resulting sequence similarity network to identify orthology groups, and then dealing with paralogous genes. My work seeks to improve on the second step in this process. Few benchmarks exist for the relative performance of network community detection methods applied to sequence similarity networks, and none are capable of keeping pace with the deluge of modern genomics data.
 
-My algorithm, ExoLabel, leverages disk storage to identify communities on arbitrarily sized networks in linear time with constant space RAM. ExoLabel can process networks with billions of nodes in under an hour using only 100MB of RAM, and is available in the SynExtend packcage for R. A manuscript for this work is in progress, and will be submitted for publication in October 2024.
+My algorithm, ExoLabel, leverages disk storage to identify communities on arbitrarily sized networks in linear time with low RAM requirements. Estimated computational requirements for a graph with 10 billion edges on a single-threaded machine is roughly 60GB of RAM, with completion in a few hours. ExoLabel is available in the SynExtend package for R, and an in-depth discussion of some of the work that went into it is available on my [blog](https://www.ahl27.com/blog). A manuscript for this work is in progress, and will be submitted for publication in February 2025.
 
 
 ### Aim 3: Scalable Identification of Functional Pathways
 
 Aim 1 identifies functional associations among pairs of protein-coding genes. This Aim will identify complete functional pathways by clustering the network derived from pairwise functional associations elucidated in Aim 1. In theory, this should serve as a powerful hypothesis-generating tool to guide future wet lab investigations, such as for identifying potential new biosynthetic gene clusters or functional pathways in understudied organisms.
 
-I plan to use the results of this Aim alongside my previous research and other efforts in our lab to release a novel database to quantify coevolutionary relationships among gene families across the tree of life. This work has not yet started, but is planned to take place from October 2024 to May 2025.
+I plan to use the results of this Aim alongside my previous research and other efforts in our lab to release a novel database to quantify coevolutionary relationships among gene families across the tree of life. This work has not yet started, but is planned to take place from February to August 2025.
 
 ## Other Current Work
 
