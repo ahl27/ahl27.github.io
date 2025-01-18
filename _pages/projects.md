@@ -6,20 +6,24 @@ author_profile: true
 ---
 ------
 
-This page details my many side projects I've worked on for fun. A description of the research projects I do for my work can be found on the [Research page](https://www.ahl27.com/research/).
+This page details some of my many side projects I've worked on for fun. A description of the research projects I do for my work can be found on the [Research page](https://www.ahl27.com/research/). **Note:** some of my most interesting work is on [my blog page](https://www.ahl27.com/blog)!
 
 ## Software
-
-### Froth
-![](../images/froth.png)
-
-`froth` is a Forth implementation that runs on top of R! You can download it from CRAN, and learn to use it by checking out [my tutorials](https://www.ahl27.com/tutorials).
 
 ### 65C02 Emulator
 
 ![](/images/blog_images/emuExample.gif)
 
 I wrote an emulator in C for 65C02 systems. The full code is available [on GitHub](https://github.com/ahl27/65C02Emulator). This program implements a GUI to monitor memory while executing programs, as well as complete emulation of all 6502 and 65C02 Rockwell/WDC opcodes. More details are available [on my blog](https://www.ahl27.com/tags/#emulator).
+
+### 65C02 Operating System (In progress)
+
+I'm developing an operating system from scratch for my breadboard 65C02 computer (see Hardware below). This project is what led to the development of my 65C02 emulator, since I needed a better way to visualize operations happening on the processor and didn't like other available solutions. The OS drops the user directly into a Forth REPL. The project is currently in progress, but the current status can be seen [on GitHub](https://github.com/ahl27/FORTH).
+
+### Froth
+![](../images/froth.png)
+
+`froth` is a Forth implementation that runs on top of R! You can download it from CRAN, and learn to use it by checking out [my tutorials](https://www.ahl27.com/tutorials).
 
 ### SynCIPHER Web App
 
