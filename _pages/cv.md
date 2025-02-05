@@ -12,14 +12,6 @@ redirect_from:
 ## Resume
 
 <p>&nbsp;</p>
-<embed src="../files/IndustryResume_2025.pdf" type='application/pdf'>
+<embed src="/files/ALakshman_Resume2025.pdf" type='application/pdf'>
 
-Not loading? [Download my Resume here.](../files/IndustryResume_2025.pdf)
-
-## CV
-
-<p>&nbsp;</p>
-<embed src="../files/CV_2024.pdf" type='application/pdf'>
-
-
-Not loading? [Download my CV here.](../files/CV_2024.pdf)
+Not loading? [Download my Resume here.](/files/ALakshman_Resume2025.pdf)
