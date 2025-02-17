@@ -106,8 +106,8 @@ As someone that agonized over the waiting periods, I know how much people value 
 
 - Recruiter reached out, asked for availability for the phone screen on the same day.
 - I scheduled my phone screen for four weeks out to give me time to prepare.
-- About two weeks after the phone screen, I was notified I passed. This was over the winter holiday break, so it was likely longer than usual.
-- I gave my availabilty and scheduled my full loop: the first two interviews were 3 weeks from notification, the other three interviews were a week later.
+- About two weeks after the phone screen, I was notified that I passed. This was over the winter holiday break, so it was likely longer than usual.
+- I gave my availabilty and scheduled my full loop: the first two interviews were three weeks from notification, and the other three interviews were a week  after that.
 - Got a call from the recruiter that my materials were being submitted to the hiring committee three days after my final interview finished.
 - Received a verbal offer from the recruiter the three days after that, in the morning.
 
@@ -120,6 +120,6 @@ I don't think I can emphasize enough how luck-driven the process is. However, I 
 
 *Luck is when preparation meets opportunity.*
 
-Getting an opportunity to interview for a position like this is incredibly driven by chance. There are plenty of ways to increase your chances (most of which can be politely summarized as "networking"), but then you have to actually succeed at that opportunity. Plenty of people have lots of skills but never get an opportunity to prove it, and plenty of people have no skills but get lots of opportunity (and often don't pass).
+Getting an opportunity to interview for a position like this is incredibly driven by chance. There are many ways to increase your chances (most of which can be politely summarized as "networking"), but then you have to actually succeed at that opportunity. Plenty of people have lots of skills but never get an opportunity to prove it, and plenty of people have no skills but get lots of opportunity (and often don't pass).
 
 Everyone wants to know how you get an interview at FAANG, and for that I have absolutely no idea...but I would say be ready/prepared enough that if you do get the chance, you can knock it out of the park.
