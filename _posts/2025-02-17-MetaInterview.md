@@ -110,11 +110,11 @@ As someone that agonized over the waiting periods, I know how much people value 
 - I gave my availabilty and scheduled my full loop: the first two interviews were three weeks from notification, and the other three interviews were a week  after that.
 - Got a call from the recruiter that my materials were being submitted to the hiring committee three days after my final interview finished.
 - Received a verbal offer from the recruiter the three days after that, in the morning.
+- Did a some market research and negotiating, then officially accepted about a week later.
 
+From start to end, the process took almost exactly two months, comprising seven interviews and the initial recruiter screen. The recruiters and interviewers were all extremely nice and helpful; I don't think it could have been an easier experience given how many steps/interviews had to happen.
 
-## Conclusion
-
-From start to end, the process was almost exactly two months. The recruiters and interviewers were all extremely nice and helpful; I don't think it could have been an easier experience given how many steps/interviews had to happen.
+## Some Closing Thoughts
 
 I don't think I can emphasize enough how luck-driven the process is. However, I find myself continuing to come back to the following well-known quote usually attributed to Roman philospher Seneca:
 
