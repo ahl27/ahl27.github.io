@@ -1,5 +1,5 @@
 ---
-title: "So what is it like to interview at Meta/Facebook?"
+title: "So what is it like to interview at Meta/Facebook? (Research Scientist)"
 date: 2025-02-17
 permalink: /posts/2025/02/meta-interview/
 tags:
@@ -65,9 +65,99 @@ A good solution for a coding problem looks like this:
 4. Test your code by walking through the test cases provided by hand. I like to record relevant variables below the code and update their values as I step through the code. If you find bugs, fix them!
 5. If time allows, think of other test cases and test them, prioritizing edge cases.
 
+I'll include an example of that below. Note that the block quotes `/* */` aren't stuff I would actually include, it's just to call out the steps of the above framework!
+
+```c
+// Question: Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).
+
+/*
+ * 1. Clarify the problem.
+ * I'd ask if negative exponents are acceptable and what types we expect the
+ * input data to be.
+ * Let's say that the interviewer clarifies it the function should expect x to
+ * be a double, n to be an int, and negative exponents are supported.
+*/
+
+/*
+ * 2. Describe your solution.
+ *
+ * I like to do this with steps that I can add in to the code later
+ */
+
+// 1. convert n to long (so we don't have overflow issues)
+// 2. invert x if n is negative (so we only deal with positive values)
+// 3. while n is positive:
+//    - if n is odd, multiply result by x and subtract 1 from n
+//    - multiply x by x and divide n by two
+
+/* here I would check with the reviewer BEFORE proceeding! */
+
+/*
+ * 3. Code your solution (with good code! Descriptive names!)
+ */
+
+double pow(double x, int n){
+  // 1. convert n to long
+  long exponent = (long)n;
+
+  // 2. invert x if exponent is negative
+  if(exponent < 0){
+    x = 1.0 / x;
+    exponent *= -1;
+  }
+
+  // initialize result
+  double result = 1.0;
+
+  // 3. while n is positive...
+  while(exponent > 0){
+    // if exponent is odd, update result
+    if(exponent % 2 == 1){
+      res *= x;
+      exponent--; // this line isn't really necessary bc of integer division
+                  // but keeping it in for clarity
+    }
+    // square x and half exponent
+    x *= x;
+    exponent /= 2;
+  }
+
+  return result;
+}
+
+/*
+ * 4 & 5. Test cases
+ * Here I like to write down the variables and update them as I step through code.
+ */
+
+// x = 10
+// exponent = 5
+// result = 1
+/* I'd update these as we go through... */
+```
+
+There's a couple lines that could be simplified slightly (e.g. `if(exponent)` is the same as `if(exponent > 0)`), but if it doesn't affect your runtime, I'd err on the side of readability. You could do it like the below code block, but it would be a lot less readable:
+
+```c
+// much less readable code!
+double pow(double x, int n){
+  if(n < 0) x = 1/x;
+  double r = 1;
+  long e = fabs(n);
+  while(e){
+    if(e % 2) r *= x;
+    x *= x;
+    e /= 2;
+  }
+  return r;
+}
+```
+
 Of note is that Meta interviews don't allow any code execution. You basically get a text editor with syntax highlighting. That also means no autocomplete and no AI code generation. Make sure you know your stuff -- they won't care as much about small syntax issues (e.g., missing semicolon, arguments maybe in wrong order), but they will care about not knowing functions.
 
 I think it's a good idea to try this out with friends. Sublime Text is a great representation of what you'll get in an interview. Focus on making sure you're always talking -- don't talk over the interviewer, but talk through what you're doing as you go so that they know what you're trying to do. Silently failing is much, much worse because the interviewer won't even know what you were attempting! This can also help you if you don't quite remember a function; there were a couple times where I said some variant of "This function does x, I can't remember if the arguments are in this order or the other but the result of passing these two inputs should be this output". That demonstrates you know what you're talking about, and any bugs that may be present are ones you'd be able to fix very easily. Doing that in practice is harder than it sounds, so it's worth working through.
+
+Another thing to note is that the test cases are primarily there to help *you*, not the interviewer! Don't skip through the testing unless you're really pressed for time. It's really easy to fall into the trap of thinking "I know what I tried to write so I'll just walk through what that does". Testing is half to validate your logic, and half to validate your actual code. Step through your code, doing **exactly** what it says, not what you assume it's doing. It'll seem tedious, but you'll be much more likely to catch bugs. I usually started going through test cases extremely meticulously for the first few iterations, and then gradually sped up as I confirmed the functionality was what I wanted.
 
 For Meta specifically, I'd highly recommend LeetCode premium so you can sort questions by company and frequency. Meta tends to draw from the same question bank, so going to questions frequently asked in the last 3 months and sorting by decreasing frequency gives a really solid list of questions to study.
 
