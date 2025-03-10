@@ -15,7 +15,7 @@ My doctoral research aims to develop comparative genomics methods to reveal func
 
 Proteins often work with other proteins in a cell to achieve common function. Some notable examples of this are metabolic pathways or biosynthetic gene clusters. Over evolutionary timescales, this shared function results in a shared selective pressure on the genes responsible for these proteins. This work seeks to measure the extent of this shared selective pressure among genes to predict which protein-coding genes work in concert to achieve some shared function within a cell. This allows for quantification of functional relationships among proteins without reliance on wet lab investigation or prior knowledge. My algorithm outperforms the STRING database at recapitulating KEGG while using only sequencing data.
 
-This algorithm is called EvoWeaver, and is distributed in the SynExtend package for R. A manuscript for this research is currently in revision at *Nature Biotechnology*. A preprint is not publicly available, but can be viewed [here](../files/EvoWeaver.pdf).
+This algorithm is called EvoWeaver, and is distributed in the SynExtend package for R. A manuscript detailing this research was just accepted in principle at *Nature Communications*, and will be publicly available soon.
 
 
 ### Aim 2: Scalable Orthology Detection
