@@ -12,6 +12,6 @@ redirect_from:
 ## Resume
 
 <p>&nbsp;</p>
-<embed src="/files/ALakshman_Resume2025.pdf" type='application/pdf'>
+<embed src="/files/ALakshman_Resume2026.pdf" type='application/pdf'>
 
-Not loading? [Download my Resume here.](/files/ALakshman_Resume2025.pdf)
+Not loading? [Download my Resume here.](/files/ALakshman_Resume2026.pdf)
