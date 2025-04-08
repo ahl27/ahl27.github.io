@@ -108,7 +108,7 @@ if(!new_dist)
   new_dist = new_dist - 1;
 ```
 
-Hopefully that starts to clarify the issue. Casting happens on *assignment*, not midway through calculations. Additionally, types are typically upcasted to the largest type. This means we have the following order of evaluation:
+Hopefully that starts to clarify the issue. The cast to `uint16_t` happens on *assignment*, not midway through calculations. Casting does happen during calculations, but this is usually just upcasting to the largest type. This means we have the following order of evaluation:
 
 1. `1` is implicitly of type `int`
 2. `new_dist` is of type `uint16_t`, so it gets promoted to type `int` for addition
