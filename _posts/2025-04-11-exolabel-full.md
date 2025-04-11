@@ -220,3 +220,8 @@ I also mentioned that there's a distance attribute in the leaf nodes. This is to
 ### Step 5: Output
 
 At this stage, each node's final cluster is stored in the `count` attribute of the corresponding leaf node in the trie. Additionally, each label is stored along the paths of the trie. This means that the labels and their corresponding clusters can be recovered with a simple depth-first traversal of the trie structure. The labels are cached along each node as the trie is traversed. When a leaf node is encountered, the current label and the cluster are written to the outfile.
+
+
+## Conclusion
+
+I think this is one of my longest blog posts, ever. If you've made it this far, thanks for reading. Check out the code for ExoLabel in the SynExtend package on [GitHub](https://github.com/ahl27/SynExtend), and stay tuned for a paper on it in the near future!
