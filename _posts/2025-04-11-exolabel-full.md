@@ -12,7 +12,7 @@ I've made a lot of posts about ExoLabel, but the project has been moving so quic
 
 ## The Problem
 
-ExoLabel is a function to cluster big networks, but...why would anyone want to do that?
+ExoLabel is an algorithm to cluster big networks, but...why would anyone want to do that?
 
 There's a lot of use-cases for network clustering (also sometimes referred to as community detection for graphs/networks), but our specific need came from a a problem we encountered in our workflow.
 
