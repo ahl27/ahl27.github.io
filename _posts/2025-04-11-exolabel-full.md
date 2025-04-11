@@ -79,10 +79,10 @@ Before digging into the details, I'll give a brief description of its performanc
 
 | Vertices | Edges | Runtime (MM:SS) | RAM Consumption | Disk Consumption |
 | :-----: | :-----: | :-----: | :-----: | :-----: |
-| 56,266  | 686,286  | 00:02.0  | 113 MB  | 22.0 MB  |
-| 128,008 | 1,503,044  | 00:02.1 | 132 MB  | 50.7 MB  |
-| 1,375,735 | 156,434,932 | 01:43.7 | 271 MB  | 5.0 GB |
-| 3,500,903 | 937,020,456 | 15:17.2 | 380 MB | 29.9 GB |
+| 56,266  | 686,286  | 00:02  | 113 MB  | 22.0 MB  |
+| 128,008 | 1,503,044  | 00:02 | 132 MB  | 50.7 MB  |
+| 1,375,735 | 156,434,932 | 01:43 | 271 MB  | 5.0 GB |
+| 3,500,903 | 937,020,456 | 15:17 | 380 MB | 29.9 GB |
 
 Accuracy benchmarks are forthcoming. Anecdotally, it produces pretty good results. For reference, [HipMCL](https://doi.org/10.1093/nar/gkx1313) required 240 cores and 15TB of unified RAM to process a similar sized network to ExoLabel's final trial (with roughly 3.5M nodes, 700M directed edges) in 30 min.
 
