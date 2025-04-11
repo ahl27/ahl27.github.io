@@ -73,6 +73,19 @@ This is a nice representation for a couple key reasons. First, it stores all the
 
 That's the high-level view of ExoLabel. We first read the input data into a CSR format on disk, and then we use fast label propagation, querying the CSR table for relevant data when we process each node. The next section will detail all the nitty-gritty, so if you're not interested in that, feel free to stop reading here.
 
+## Performance
+
+Before digging into the details, I'll give a brief description of its performance. Note that this is a work in progress -- I'll update this section as I finish the rest of my benchmarks. Note that the RAM consumption doesn't include the amount of RAM required for R and the SynExtend package, which is around 300MB on my machine. These tests were performed on an M1 MacBook Pro with 16GB RAM and graphs stored on an internal SSD. All these test cases are real sequence similarity networks. The final test read the input file from an external HDD connected via USB-C, with intermediate files stored on the internal SSD. Edges are directed, so the number reported is twice the number of undirected edges.
+
+| #Vertices | #Edges | Runtime (MM:SS) | RAM Consumption | Disk Consumption |
+| -----: | -----: | :-----: | :-----: | :-----: |
+| 56,266  | 686,286  | 00:02.0  | 113MB  | 22.0MB  |
+| 128,008 | 1,503,044  | 00:02.1 | 132MB  | 50.7MB  |
+| 1,375,735 | 156,434,932 | 01:43.7 | 271MB  | 5.0GB |
+| 3,500,903 | 937,020,456 | 15:17.2 | 380MB | 29.9GB |
+
+Accuracy benchmarks are forthcoming. Anecdotally, it produces pretty good results. For reference, [HipMCL](https://doi.org/10.1093/nar/gkx1313) required 240 cores and 15TB of unified RAM to process a similar sized network to ExoLabel's final trial (with roughly 3.5M nodes, 700M directed edges) in 30 min.
+
 ## Deep Dive: How does it *really* work?
 
 Let's now go through how ExoLabel actually works in detail. There are 5 key steps:
