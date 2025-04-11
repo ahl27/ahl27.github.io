@@ -84,7 +84,7 @@ Before digging into the details, I'll give a brief description of its performanc
 | 1,375,735 | 156,434,932 | 01:43 | 271 MB  | 5.0 GB |
 | 3,500,903 | 937,020,456 | 15:17 | 380 MB | 29.9 GB |
 
-Accuracy benchmarks are forthcoming. Anecdotally, it produces pretty good results. For reference, [HipMCL](https://doi.org/10.1093/nar/gkx1313) required 240 cores and 15TB of unified RAM to process a similar sized network to ExoLabel's final trial (with roughly 3.5M nodes, 700M directed edges) in 30 min.
+Accuracy benchmarks are forthcoming. Anecdotally, it produces pretty good results. For reference, [HipMCL](https://doi.org/10.1093/nar/gkx1313) required 240 cores and 15TB of unified RAM to process a similar sized network to ExoLabel's final trial (with roughly 3.5M nodes, 700M directed edges) in 30 min. MCL scales quadratically so it's not the most fair comparison, but it is the standard approach in the field.
 
 ## Deep Dive: How does it *really* work?
 
