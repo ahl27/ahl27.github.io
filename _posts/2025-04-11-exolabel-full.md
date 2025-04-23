@@ -243,4 +243,4 @@ At this stage, each node's final cluster is stored in the `count` attribute of t
 
 ## Conclusion
 
-I think this is one of my longest blog posts, ever. If you've made it this far, thanks for reading. Check out the code for ExoLabel in the SynExtend package on [GitHub](https://github.com/ahl27/SynExtend), and stay tuned for a paper on it in the near future!
+I think this is one of my longest blog posts, ever. If you've made it this far, thanks for reading. Check out the code for ExoLabel in the SynExtend package on [GitHub](https://github.com/ahl27/SynExtend/blob/756e6f1594c112528e53de2b9a39c19d7543dc27/src/OnDiskLP.c), and stay tuned for a paper on it in the near future!
