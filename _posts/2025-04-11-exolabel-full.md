@@ -20,7 +20,7 @@ You may be shocked to learn that the field of comparative genomics revolves arou
 
 We can get a measure of how similar sequences are by using tools for pairwise sequence similarity comparisons, like BLAST or DIAMOND. This gets us part of the way to a solution, but natural evolutionary processes introduce a lot of noise into the data we analyze. This means that truly related genes could appear to have low similarity, and unrelated genes could spuriously appear to be very similar.
 
-One approach to get around this is to cluster the network formed by these genes when we connected them by their sequence similarity. In other words, we build a *sequence similarity network*, which is a graph where each node is a gene sequence, and each edge is the sequence similarity of the genes it connects. Clusters from these networks are typically a good estimate to get groups of genes we can analyze with other methods. With sufficient data, the true signal becomes distinguishable from background noise.
+One approach to get around this is to cluster the network formed by these genes when we connect them by their sequence similarity. In other words, we build a *sequence similarity network*, which is a graph where each node is a gene sequence, and each edge is the sequence similarity of the genes it connects. Clusters from these networks are typically a good estimate to get groups of genes we can analyze with other methods. With sufficient data, the true signal becomes distinguishable from background noise.
 
 The problem we encountered is that we didn't have enough resources to actually find clusters in these networks. We get better results with more data, but the size of sequence similarity networks scales quickly as we add more data. The average *E. coli* genome has around 4,200 genes. If we sequence 1,000 of these genomes, that's 4,200,000 genes. We typically use reciprocal best-BLAST hits, so each gene will only have a similarity to one gene per other genome, but even with that, we're looking at around 2.1 billion edges.
 
@@ -71,8 +71,6 @@ They are from nodes B and A
 
 This is a nice representation for a couple key reasons. First, it stores all the edges for a particular node in a contiguous block. Disk drives are most efficient at sequential reads, so this allows ExoLabel to read all the edges for a particular node sequentially rather than jumping around in the database. Second, it stores the minimum amount of data necessary for each edge -- since we know the destination node implicitly using the index, we only have to store the source node (for directed graphs -- for undirected graphs, we have to store each edge as two directed edges). For weighted graphs, we can either store the weights inline with the edges or in a second table with matched format.
 
-That's the high-level view of ExoLabel. We first read the input data into a CSR format on disk, and then we use fast label propagation, querying the CSR table for relevant data when we process each node. The next section will detail all the nitty-gritty, so if you're not interested in that, feel free to stop reading here.
-
 ## Performance
 
 Before digging into the details, I'll give a brief description of its performance. Note that this is a work in progress -- I'll update this section as I finish the rest of my benchmarks. Note that the RAM consumption doesn't include the amount of RAM required for R and the SynExtend package, which is around 300MB on my machine. These tests were performed on an M1 MacBook Pro with 16GB RAM and graphs stored on an internal SSD. All these test cases are real sequence similarity networks. The final test read the input file from an external HDD connected via USB-C, with intermediate files stored on the internal SSD. Edges are directed, so the number reported is twice the number of undirected edges.
@@ -85,6 +83,8 @@ Before digging into the details, I'll give a brief description of its performanc
 | 3,500,903 | 937,020,456 | 15:17 | 380 MB | 29.9 GB |
 
 Accuracy benchmarks are forthcoming. Anecdotally, it produces pretty good results. For reference, [HipMCL](https://doi.org/10.1093/nar/gkx1313) required 240 cores and 15TB of unified RAM to process a similar sized network to ExoLabel's final trial (with roughly 3.5M nodes, 700M directed edges) in 30 min. MCL scales quadratically so it's not the most fair comparison, but it is the standard approach in the field.
+
+That's the high-level view of ExoLabel. We first read the input data into a CSR format on disk, and then we use fast label propagation, querying the CSR table for relevant data when we process each node. Doing that in an efficient way results in pretty good runtime -- not as good as a completely in-memory algorithm with access to infinite RAM, but much better than a limited machine that has to rely on swap. The next section will detail all the nitty-gritty, so if you're not interested in that, feel free to stop reading here.
 
 ## Deep Dive: How does it *really* work?
 
@@ -202,7 +202,7 @@ This gets us a CSR format graph, assuming we have the index stored somewhere els
 
 Sorting the list of edges is a good idea because we can do it entirely with sequential read/writes using merge sort. While this has `n*log n` complexity (`n` the number of edges), it ends up being significantly faster than the naive approach because sequential read/write is constant time complexity, whereas random read/write is effectively linear (making the naive approach closer to `n^2` scaling).
 
-As we traverse the file in step 1, we also record the edges. Since step 3 involves merge sort, I frontload part of the operation by sorting fixed size buffers prior to writing. Practically, this means that ExoLabel reads in around 40,000 edges at a time (converting strings to indices as they're read in), sorts the list of ~40k edges, then writes those to the file and clears the buffer. These writes are all sequential and at the end of the file, so they're extremely fast. This pre-sort step saves a lot of time later -- merge sort is most time-consuming at the early stages when its merging small blocks (especially when those blocks are on disk and not in RAM), and it technically only adds linear time complexity since each sort is on a constant-size array.
+As we traverse the file in step 1, we also record the edges. Since step 3 involves merge sort, I frontload part of the operation by sorting fixed size buffers prior to writing. Practically, this means that ExoLabel reads in around 40,000 edges at a time (converting strings to indices as they're read in), sorts the list of ~40k edges, then writes those to the file and clears the buffer. These writes are all sequential and at the end of the file, so they're extremely fast. This pre-sort step saves a lot of time later -- merge sort is most time-consuming at the early stages when it's merging small blocks (especially when those blocks are on disk and not in RAM), and it technically only adds linear time complexity since each sort is on a constant-size array.
 
 It's important to note that the buffer used to hold edges has to be global; when reading in multiple input files, the ends of files may not match up perfectly with buffer sizes. In tihs case, the next file should continue writing edges to the buffer prior to sorting and flushing the buffer so that all blocks in the resulting file are the same size (except potentially the very last block).
 
@@ -238,7 +238,7 @@ I also mentioned that there's a distance attribute in the leaf nodes. This is to
 
 ### Step 5: Output
 
-At this stage, each node's final cluster is stored in the `count` attribute of the corresponding leaf node in the trie. Additionally, each label is stored along the paths of the trie. This means that the labels and their corresponding clusters can be recovered with a simple depth-first traversal of the trie structure. The labels are cached along each node as the trie is traversed, much like a standard backtracking algorithm. When a leaf node is encountered, the current label and the cluster are written to the outfile.
+At this stage, each node's final cluster is stored in the `count` attribute of the corresponding leaf node in the trie. Additionally, each label is stored along the paths of the trie. This means that the labels and their corresponding clusters can be recovered with a simple depth-first traversal of the trie structure. The labels are cached along each node as the trie is traversed with a standard backtracking algorithm. When a leaf node is encountered, the current label and the cluster are written to the outfile.
 
 
 ## Conclusion
