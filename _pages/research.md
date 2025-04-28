@@ -17,6 +17,7 @@ Proteins often work with other proteins in a cell to achieve common function. So
 
 This algorithm is called EvoWeaver, and is distributed in the SynExtend package for R. This work was published in *Nature Communications*, and is available at [https://doi.org/10.1038/s41467-025-59175-6](https://doi.org/10.1038/s41467-025-59175-6).
 
+<div data-badge-type='medium-donut' class='altmetric-embed' data-badge-details='right' data-doi='10.1038/s41467-025-59175-6'></div>
 
 ### Aim 2: Scalable Orthology Detection
 
