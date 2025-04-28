@@ -5,6 +5,8 @@ excerpt: "Research"
 author_profile: true
 ---
 
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
 This page gives a brief overview of my research and other work projects.
 
 ## Doctoral Research
