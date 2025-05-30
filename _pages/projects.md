@@ -36,17 +36,18 @@ I'm developing an operating system from scratch for my breadboard 65C02 computer
 ## Keyboards
 ------
 
-I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My daily drivers are both Vault35s--rainbow for work, and black for at home.
-
-**RainbowVault**
-
-Vault35 with a custom rainbow cerakote by Jake at the P3DStore. Lucy Silent switches and DSA weirdo milkshake caps--definitely my favorite of the boards I own.
-![](/images/rainbow_vault35.png)
+I love building mechanical keyboards (and honestly I have too many at this point). Pictured are my favorites; at some point I'll get them all up here. My daily drivers are both Vault35s -- rainbow for work, and black for at home.
 
 **Oracle**
+
 Oracle from the [Mechvault](https://mechvault.net/). Switches are a mishmash -- top row keys are Gateron Oil Kings, bottom four are Lucy Silents, three keys (Branch, Merge, Reset) are Momoka Frogs, and the rest are Outemu Honey Peach v2s. Keycaps are GMK Oblivion v2.
 
 ![](/images/oracle.jpg)
+
+**RainbowVault**
+
+Vault35 with a custom rainbow cerakote by Jake at the P3DStore. Lucy Silent switches and DSA weirdo milkshake caps -- definitely my favorite of the boards I own.
+![](/images/rainbow_vault35.png)
 
 **Vault35 + 16**
 
@@ -94,11 +95,6 @@ Cherry silent red switches, XDA caps.
 Gateron brown switches, KBDfans OEM caps, brass weight. My first keyboard!
 ![](/images/65keyboard.jpg)
 
-&nbsp;
-
-&nbsp;
-
------
 
 -----
 ## Programming Languages
