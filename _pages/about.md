@@ -15,7 +15,5 @@ While at AWS, I worked on open source projects designed for helping researchers 
 
 In addition to my research, I maintain [froth](https://www.ahl27.com/froth), a Forth-like environment for R. I was also recently awarded a grant to take over maintenance of the [Biostrings package](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html).
 
-I'm always interested in new collaborations and projects, so feel free to reach out if you're interested in discussing anything related to my current or prior research. My contact info is on the sidebar, and my CV is located [here](https://www.ahl27.com/cv/).
-
-
+I'm always interested in new collaborations and projects, so feel free to reach out if you're interested in discussing anything related to my current or prior research. You can email me at AHL27 {at} pitt {dot} edu, and my CV is located [here](https://www.ahl27.com/cv/).
 
