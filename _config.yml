@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Aidan Lakshman"
   avatar           : "TreePhotoCropped.png"
-  bio              : "Doctoral Candidate, \nUniversity of Pittsburgh \nSchool of Medicine"
-  location         : "Pittsburgh, PA"
+  bio              : "Software Engineer at Google"
+  location         : "New York, NY"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=aidan+lakshman"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
@@ -256,8 +256,10 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/New_York # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
+
+remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 # Plugins
 plugins:
@@ -311,4 +313,3 @@ compress_html:
   ignore:
     envs: development
 
-theme: jekyll-theme-leap-day
