@@ -19,10 +19,10 @@ main:
     children:
       - title: "Software"
         url: software/
-      - title: "Hardware"
-        url: hardware/
-      - title: "Research"
-        url: research/
+      - title: "6502"
+        url: 6502/
+      - title: "Keyboards"
+        url: keyboards/
       - title: "Future Plans"
         url: future/
   - title: "Blog Posts"
@@ -32,16 +32,12 @@ main:
   - title: "Fun Stuff"
     url: /otherstuff/
     children:
-      - title: "Keyboards"
-        url: keyboards/
       - title: "Music"
         url: music/
       - title: "Cocktails"
         url: cocktails/
       - title: "Coffee"
         url: coffee/
-  - title: "Music"
-    url: /music/
   
     
 #  - title: "Guide"

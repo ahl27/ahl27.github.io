@@ -1,7 +1,7 @@
 ---
-permalink: /otherstuff/
-title: "Coffee and Cocktails"
-excerpt: "Other"
+permalink: /otherstuff/coffee/
+title: "Coffee"
+excerpt: "Coffee"
 author_profile: true
 ---
 
@@ -14,7 +14,7 @@ Note that I personally really enjoy both fruity and fermented notes in coffee, a
 ### Drink Rankings
 
 - **Best Straight Espresso**: Definitely [Redhawk Coffee](https://maps.app.goo.gl/DePYiuv6np1JnZ2C8), they do a great job with flavorful shots with fruity notes.
-- **Best Hot Latte**: [Abolition Coffee](https://maps.app.goo.gl/BUqGUC7Zw3Bavjot9). It's one guy and his coffee shop, and he does an absolutely terrific job. Hours are kinda funky -- you can't roll in here at any time like you would a Starbucks.
+- **Best Hot Latte**: [Abolition Coffee](https://maps.app.goo.gl/BUqGUC7Zw3Bavjot9). It's one guy and his coffee shop, and he does an absolutely terrific job. Hours are kinda funky -- you can't roll in here at any time like you would a Starbucks. *Edit: I've just learned that Abolition has sadly closed, so I'm in the process of finding somewhere new.*
 - **Best Iced Latte**: Still looking for a place -- we're not quite to iced drink season and I don't have a great memory of where I liked last season, so this spot will have to wait until the summer.
 - **Best Iced Seasonal Drinks**: Previously Adda, but now actively searching for something new.
 - **Best Hot Seasonal Drinks**: [Arriviste Coffee](https://maps.app.goo.gl/XjRXDpzC7Hvu6ikR9) in Shadyside has super fun specialty drinks. I feel like a really good specialty drink is more than just making a cool syrup and throwing it in a latte. Arriviste definitely does this (although they also have many cool house-made syrups!).
@@ -31,43 +31,16 @@ Note that I personally really enjoy both fruity and fermented notes in coffee, a
 -----
 
 ## Coffee
-I first really got into coffee while studying abroad in Japan! My host family founded [Kariomons Coffee Roasters](https://kariomons.com/),
-so I had a great experience learning to appreciate coffee while staying with them. My favorite coffee shop in Pittsburgh is [Redhawk Coffee](https://www.redhawkcoffee.com/);
-I have yet to find a cafe with a better espresso.
+
+I first really got into coffee while studying abroad in Japan! My host family founded [Kariomons Coffee Roasters](https://kariomons.com/), so I had a great experience learning to appreciate coffee while staying with them. My favorite coffee shop in Pittsburgh is [Redhawk Coffee](https://www.redhawkcoffee.com/)!
 
 #### Gallery
+
 ![](../621C0496-AC7E-40C9-BCAF-84C61088FE2F.jpeg)
 ![](../images/742AEA55-45C6-4C34-A6D2-326AA3AB77DB.jpeg)
 
 #### Setup
+
 ![](../2D143280-6471-4805-B6B5-E5E512565BDE.jpeg)
 I'm using a [Niche Zero](https://www.nichecoffee.co.uk/) grinder with a [Fellow Stagg EKG](https://fellowproducts.com/) for my coffee.
-For espresso drinks, I use a [Cafelat Robot](https://www.youtube.com/watch?v=11ZSXVZbQbA) with the [Subminimal Nanofoamer](https://subminimal.com/products/nanofoamer).
-
-------
-## Cocktails
-
-I really enjoy making fun cocktails. These are some of my favorite creations thus far.
-
-![](../80C608F3-D183-47A0-B97F-84D5D475F1D0.jpeg)
-This is a gin and tonic from The Aviary's cocktail book. It uses gin, tonic, and green chartreuse for the drink itself, with homemade
-cucumber popping boba.
-
-![](../61D1A1F8-BD70-4D7A-818F-F2DF721043EB.jpeg)
-This is another one from The Aviary cocktail book, the Jungle Bird. It's layers of pineapple juice, campari, white rum, and dark rum, with rum infused popping boba
-bubbles suspended on the border between the campari and white rum.
-
-![](/images/espressomartini.jpg)
-This was inspired by S1 E6 of Drink Masters on Netflix--I learned that there are ways to make "caviar" out of any cocktail!
-This one is a deconstructed espresso martini, comprised of vanilla vodka jelly with coffee caviar.
-
-![](/images/caviarcocktail.jpg)
-Another caviar cocktail--this was my first sucessful experiment with the technique. The bubbles are comprised of white rum, strawberry syrup, and lime.
-
-![](/images/caperdrink.png)
-Here's one I call "The Big Caper". It's a riff on a Mojito--white rum, tonic water, lime, sugar, and orange-mint caviar. The end result looks a lot like a jar of capers, which I thought was super fun.
-
-![](/images/easterlayered.png)
-This was my second time making the Aviary's gin and tonic, but with a slight twist. The gin is infused with butterfly pea flower tea
-to turn it blue-violet, and then layered on top of the drink. As the drink is mixed, the acidity of the drink causes the gin to change
-colors from blue-violet to pink-lilac.
+For espresso drinks, I use a [Cafelat Robot](https://www.youtube.com/watch?v=11ZSXVZbQbA) with the [Subminimal Nanofoamer](https://subminimal.com/products/nanofoamer), though these days I mostly brew V60s.

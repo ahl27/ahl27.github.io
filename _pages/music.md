@@ -1,5 +1,5 @@
 ---
-permalink: /music/
+permalink: /otherstuff/music/
 title: "Music"
 excerpt: "Music"
 author_profile: true
