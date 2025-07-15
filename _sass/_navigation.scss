@@ -207,22 +207,21 @@
     li {
       vertical-align: middle;
       display: table;
-      &:first-child {
-        font-weight: bold;
-        a {
-          margin-left: 0;
-        }
-      }
-
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
       }
     }
 
     > li {
       display: table-cell;
+      &:first-child {
+        font-weight: bold;
+        a {
+          margin-left: 0;
+        }
+      &:last-child {
+        a {
+          margin-right: 0;
+        }
+      }
     }
 
     a {
