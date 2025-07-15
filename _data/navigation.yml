@@ -8,12 +8,8 @@ main:
     
 #  - title: "Portfolio"
 #    url: /portfolio/
-  - title: "Research"
-    url: /research/
-  - title: "Tutorials"
-    url: /tutorials/
-  - title: "Talks"
-    url: /talks/
+  - title: "Blog Posts"
+    url: /blog/
   - title: "Projects"
     url: /projects/
     children:
@@ -24,9 +20,13 @@ main:
       - title: "Keyboards"
         url: keyboards/
       - title: "Future Plans"
-        url: future/
-  - title: "Blog Posts"
-    url: /blog/
+        url: futureprojects/
+  - title: "Tutorials"
+    url: /tutorials/
+  - title: "Research"
+    url: /research/
+  - title: "Talks"
+    url: /talks/
   - title: "CV"
     url: /cv/
   - title: "Fun Stuff"
