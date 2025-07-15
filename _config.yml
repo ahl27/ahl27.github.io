@@ -263,6 +263,9 @@ remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 # Plugins
 plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-include-cache
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
