@@ -64,10 +64,15 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     font-weight: normal;
 
+    &:first-child {
+        font-weight: normal;
+      }
+
     > li {
       display: block;
       width: 100%;
       float: none;
+      font-weight: normal;
 
       a {
         display: block;

@@ -206,10 +206,9 @@
 
     li {
       vertical-align: middle;
-
+      display: table;
       &:first-child {
         font-weight: bold;
-
         a {
           margin-left: 0;
         }
