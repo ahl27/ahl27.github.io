@@ -18,13 +18,13 @@ main:
     url: /projects/
     children:
       - title: "Software"
-        url: /projects/software/
+        url: software/
       - title: "Hardware"
-        url: /projects/hardware/
+        url: hardware/
       - title: "Research"
-        url: /projects/research/
+        url: research/
       - title: "Future Plans"
-        url: /projects/future/
+        url: future/
   - title: "Blog Posts"
     url: /blog/
   - title: "CV"
@@ -33,13 +33,13 @@ main:
     url: /otherstuff/
     children:
       - title: "Keyboards"
-        url: /otherstuff/keyboards/
+        url: keyboards/
       - title: "Music"
-        url: /otherstuff/music/
+        url: music/
       - title: "Cocktails"
-        url: /otherstuff/cocktails/
+        url: cocktails/
       - title: "Coffee"
-        url: /otherstuff/coffee/
+        url: coffee/
   - title: "Music"
     url: /music/
   
