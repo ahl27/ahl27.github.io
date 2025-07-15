@@ -201,22 +201,19 @@
     cursor: pointer;
   }
 
+
   .visible-links {
     display: table;
-
-    li {
-      vertical-align: middle;
-      display: table;
-      }
-    }
-
+  
     > li {
       display: table-cell;
+      vertical-align: middle;
       &:first-child {
         font-weight: bold;
         a {
           margin-left: 0;
         }
+      }
       &:last-child {
         a {
           margin-right: 0;
