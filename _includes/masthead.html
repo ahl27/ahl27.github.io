@@ -16,7 +16,7 @@
               {% assign domain = base_path %}
             {% endif %}
             {% if link.children != null %}
-              <li class="masthead__menu-item masthead__menu-item--lg has-submenu"><a href="{{ base_path }}/" aria-haspopup="true" aria-expanded="false">{{ link.title }}</a>
+              <li class="masthead__menu-item has-submenu"><a href="{{ base_path }}/" aria-haspopup="true" aria-expanded="false">{{ link.title }}</a>
               <ul class="masthead__submenu">
                 {% for child in link.children %}
                   <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}{{ child.url }}">{{ child.title }}</a></li>

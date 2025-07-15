@@ -205,7 +205,6 @@
     display: table;
 
     li {
-      display: table-cell;
       vertical-align: middle;
 
       &:first-child {
@@ -221,6 +220,10 @@
           margin-right: 0;
         }
       }
+    }
+
+    > li {
+      display: table-cell;
     }
 
     a {
