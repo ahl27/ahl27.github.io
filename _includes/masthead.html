@@ -15,11 +15,11 @@
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            {% if link.subgroups != null %}
+            {% if link.children != null %}
               <li class="masthead__menu-item masthead__menu-item--lg has-submenu"><a href="{{ base_path }}/" aria-haspopup="true" aria-expanded="false">{{ link.title }}</a>
               <ul class="masthead__submenu">
-                {% for subgroup in link.subgroups %}
-                  <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}{{ subgroup.suburl }}">{{ subcategory.subtitle }}</a></li>
+                {% for child in link.children %}
+                  <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}{{ child.url }}">{{ child.title }}</a></li>
                 {% endfor %}
               </ul>
               </li>
