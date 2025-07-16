@@ -8,10 +8,6 @@ main:
     
 #  - title: "Portfolio"
 #    url: /portfolio/
-  - title: "CV"
-    url: /cv/
-  - title: "Blog Posts"
-    url: /blog/
   - title: "Projects"
     url: /projects/
     children:
@@ -23,6 +19,10 @@ main:
         url: keyboards
       - title: "Future Plans"
         url: futureprojects
+  - title: "Blog Posts"
+    url: /blog/
+  - title: "CV"
+    url: /cv/
   - title: "Tutorials"
     url: /tutorials/
   - title: "Research"
