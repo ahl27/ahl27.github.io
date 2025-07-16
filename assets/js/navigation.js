@@ -14,14 +14,16 @@ submenuParents.forEach(parentLi => {
 
     parentLink.addEventListener("click", function (e) {
     e.preventDefault();
-    closeAllSubmenusExcept(parentLi);
+    //closeAllSubmenusExcept(parentLi);
+    closeAllSubmenus();
     toggleSubmenu();
     });
 
     parentLink.addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        closeAllSubmenusExcept(parentLi);
+        //closeAllSubmenusExcept(parentLi);
+        closeAllSubmenus();
         toggleSubmenu();
     }
     });
