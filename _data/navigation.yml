@@ -32,12 +32,12 @@ main:
   - title: "Fun Stuff"
     url: /otherstuff/
     children:
-      - title: "Music"
-        url: music/
-      - title: "Cocktails"
-        url: cocktails/
       - title: "Coffee"
         url: coffee/
+      - title: "Cocktails"
+        url: cocktails/
+      - title: "Music"
+        url: music/
   
     
 #  - title: "Guide"
