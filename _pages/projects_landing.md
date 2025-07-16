@@ -19,6 +19,3 @@ Everything relating to my work on 6502 microprocessors. Probably will eventually
 
 All my keyboards! That's keyboards for typing, not for music...though I can't say I haven't considered learning how to build musical keyboards as well.
 
-## [Future Plans](/projects/futureprojects)
-
-List of projects I'm hoping to do in the future, for my own reference.
