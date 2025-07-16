@@ -8,27 +8,27 @@ main:
     
 #  - title: "Portfolio"
 #    url: /portfolio/
+  - title: "CV"
+    url: /cv/
   - title: "Blog Posts"
     url: /blog/
   - title: "Projects"
     url: /projects/
     children:
       - title: "Software"
-        url: software/
+        url: software
       - title: "6502"
-        url: 6502/
+        url: 6502
       - title: "Keyboards"
-        url: keyboards/
+        url: keyboards
       - title: "Future Plans"
-        url: futureprojects/
+        url: futureprojects
   - title: "Tutorials"
     url: /tutorials/
   - title: "Research"
     url: /research/
   - title: "Talks"
     url: /talks/
-  - title: "CV"
-    url: /cv/
   - title: "Fun Stuff"
     url: /otherstuff/
     children:

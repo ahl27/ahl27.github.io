@@ -1,5 +1,5 @@
 ---
-permalink: /projects/futureprojects
+permalink: /projects/futureprojects/
 title: "Future Projects"
 excerpt: "Future Projects"
 author_profile: true
