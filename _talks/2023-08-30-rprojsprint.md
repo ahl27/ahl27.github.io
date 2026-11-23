@@ -2,7 +2,7 @@
 title: "R Project Sprint 2023"
 collection: talks
 type: "Attendee"
-permalink: /talks/2022-07-27-bioc
+permalink: /talks/2023-08-30-rprojsprint
 venue: "University of Warwick"
 date: 2023-08-30
 location: "Coventry, UK"

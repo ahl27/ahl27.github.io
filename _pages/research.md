@@ -11,7 +11,7 @@ This page gives a brief overview of my research and other work projects.
 
 ## Doctoral Research
 
-My doctoral research aims to develop comparative genomics methods to reveal functional associations among proteins. This takes the form of two primary Aims.
+My doctoral research focused on developing comparative genomics methods to reveal functional associations among proteins. This takes the form of two primary Aims.
 
 ### Aim 1: Using Coevolutionary Signal to Find Functional Associations
 
@@ -23,9 +23,9 @@ This algorithm is called EvoWeaver, and is distributed in the SynExtend package 
 
 ### Aim 2: Scalable Orthology Detection
 
-Comparative genomics relies on the identification of orthologs, genes deriving from a common ancestor. Since orthologs once were the same gene, we can hypothesize that they are likely to maintain a somewhat equivalent function in the present day despite occuring in different organisms. This allows for transfer of functional annotations and phylogenetic inference. Orthology detection typically has three steps: quantification of pairwise similarity between genes, clustering the resulting sequence similarity network to identify orthology groups, and then dealing with paralogous genes. My work seeks to improve on the second step in this process. Few benchmarks exist for the relative performance of network community detection methods applied to sequence similarity networks, and none are capable of keeping pace with the deluge of modern genomics data.
+Comparative genomics relies on the identification of orthologs, genes deriving from a common ancestor. Since orthologs once were the same gene, we can hypothesize that they are likely to maintain a somewhat equivalent function in the present day despite occurring in different organisms. This allows for transfer of functional annotations and phylogenetic inference. Orthology detection typically has three steps: quantification of pairwise similarity between genes, clustering the resulting sequence similarity network to identify orthology groups, and then dealing with paralogous genes. My work seeks to improve on the second step in this process. Few benchmarks exist for the relative performance of network community detection methods applied to sequence similarity networks, and none are capable of keeping pace with the deluge of modern genomics data.
 
-My algorithm, ExoLabel, leverages disk storage to identify communities on arbitrarily sized networks in linear time with low RAM requirements. Estimated computational requirements for a graph with 10 billion edges on a single-threaded machine is roughly 60GB of RAM, with completion in a few hours. ExoLabel is available in the SynExtend package for R, and an in-depth discussion of some of the work that went into it is available on my [blog](https://www.ahl27.com/posts/2025/04/exolabel-full/). A manuscript for this work is in progress, and will be submitted for publication in February 2025.
+My algorithm, ExoLabel, leverages disk storage to identify communities on arbitrarily sized networks in linear time with low RAM requirements. Estimated computational requirements for a graph with 10 billion edges on a single-threaded machine is roughly 60GB of RAM, with completion in a few hours. ExoLabel is available in the SynExtend package for R, and an in-depth discussion of some of the work that went into it is available on my [blog](https://www.ahl27.com/posts/2025/04/exolabel-full/). A preprint for this work is available upon request.
 
 
 ## Other Current Work

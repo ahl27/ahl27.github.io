@@ -34,7 +34,7 @@ novel gene function. This tutorial is more focused on code implementations than 
 
 ## [Phylogenetic Tree Distance](https://www.ahl27.com/OtherTutorials/articles/ComparingTrees.html)
 
-This tutorial builds off the Intro to Phylogenetics tutorial by showcasing a number of methods for comparing phylogenies. Phylogenies are notoriously difficult to compare due to their complex topolgy, and a number of methods have been created to calculate distances between them. Most of the methods detailed in this tutorial are accompanied by examples of calculating the distances by hand to aid in comprehension.
+This tutorial builds off the Intro to Phylogenetics tutorial by showcasing a number of methods for comparing phylogenies. Phylogenies are notoriously difficult to compare due to their complex topology, and a number of methods have been created to calculate distances between them. Most of the methods detailed in this tutorial are accompanied by examples of calculating the distances by hand to aid in comprehension.
 
 ## [Multiple Testing Correction](https://www.ahl27.com/OtherTutorials/articles/MultipleTesting.html)
 

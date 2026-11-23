@@ -4,7 +4,7 @@ collection: talks
 type: "Keynote"
 permalink: /talks/2025-06-02-erikkeynote
 venue: "Throughput Computing Week 2025"
-date: 2023-08-30
+date: 2025-06-02
 location: "Madison, Wisconsin"
 ---
 
